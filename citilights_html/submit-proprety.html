@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>RealEstate - Submit Property</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/icon/favicon.jpg" type="image/x-icon">
+
+  <!-- GOOGLE WEB FONTS INCLUDE -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
+
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap-wysihtml5.css">
+
+  <!-- THEME STYLESHEETS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shortcode.css">
+  <link rel="stylesheet" href="css/color/color1.css">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="page-left-sidebar">
+  <!-- START SITE -->
+  <div class="site">
+    <!-- START HEADER -->
+    <header class="noo-header">
+      <!-- START TOP HEADER -->
+      <div class="top-header">
+        <div class="container">
+          <div class="top-header-inner">
+            <ul class="social-top">
+              <li><a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+              <li><a href="#" title="RSS" target="_blank"><i class="fa fa-rss"></i></a></li>
+            </ul>
+
+            <div class="top-header-content">
+              <div class="emailto content-item">
+                <a href="mailto:raheelmalik068@gmail.com"><i class="fa fa-envelope-o"></i>&nbsp;Email:info@realestate.com</a>
+              </div>
+              <div class="register content-item">
+                <a href="#/login"><i class="fa fa-key"></i>&nbsp;Register</a>
+              </div>
+              <div class="login content-item">
+                <a href="#/login"><i class="fa fa-sign-in"></i>&nbsp;Login</a>
+              </div>
+              <!-- <div class="logout content-item">
+                <a href="#"><i class="fa fa-sign-out"></i>&nbsp;Logout</a>
+              </div> -->
+              <div class="header-search">
+                <label for="input-header-search"><i class="fa fa-search"></i></label>
+                <input type="text" id="input-header-search" placeholder="Search">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END TOP HEADER -->
+
+      <!-- START MAIN NAVIGATION WRAP -->
+      <div class="main-nav-wrap container">
+        <!-- START NAVBAR TOGGLE & LOGO -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="logo">
+            <div class="logo-image">
+              <a href="index.html" title="RealEstate"></a>
+            </div>
+          </div>
+        </div>
+        <!-- END NAVBAR TOGGLE & LOGO -->
+
+        <!-- START CALLING INFO -->
+        <div class="calling-info">
+          <div class="calling-content">
+            <i class="fa fa-mobile"></i>
+            <div class="calling-desc">
+              CALL  US  NOW<br>
+              <span><a href="tel:(+01)-793-7938">(+01)-793-7938</a></span>
+            </div>
+          </div>
+        </div>
+        <!-- END CALLING INFO -->
+
+        <!-- START MAIN NAVIGATION -->
+        <div class="main-navigation">
+          <nav class="collapse navbar-collapse" id="main-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="index.html">Home&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="home-map-vertical.html">Home Map Vertical</a></li>
+                  <li><a href="home-map-horizontal.html">Home Map Horizontal</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#">Properties&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu">
+                    <a href="#">List</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="list-with-sidebar.html">With Sidebar</a></li>
+                      <li><a href="list-no-sidebar.html">No Sidebar</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu">
+                    <a href="#">Grid</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="grid-with-sidebar.html">With Sidebar</a></li>
+                      <li><a href="grid-no-sidebar.html">No Sidebar</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="property-details.html">Property details</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#">Features&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="dropdown-submenu">
+                    <a href="#">Blog</a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <li><a href="blog.html">Blog</a></li>
+                      <li><a href="default-blog-left-sidebar.html">Default Blog Left Sidebar</a></li>
+                      <li><a href="default-blog-right-sidebar.html">Default Blog Right Sidebar</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu">
+                    <a href="#">Shortcodes</a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <li><a href="shortcodes.html">Shortcodes</a></li>
+                      <li><a href="citilights-shortcode.html">Citilights Shortcode</a></li>
+                      <li><a href="pricing-table.html">Pricing Table</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#">Agents&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="agents-listing.html">Agents Listing</a></li>
+                  <li><a href="agents-detail.html">Agents Detail</a></li>
+                </ul>
+              </li>
+              <li class="dropdown active">
+                <a href="#">Submit&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="my-profile.html">My Profile</a></li>
+                  <li><a href="my-properties.html">My Properties</a></li>
+                  <li><a href="submit-proprety.html">Submit Proprety</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="contact.html">Contact&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="contact1.html">Contact 1</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- END MAIN NAVIGATION -->
+      </div>
+      <!-- END MAIN NAVIGATION WRAP -->
+    </header>
+    <!-- END HEADER -->
+
+    <!-- START NOO WRAPPER -->
+		<div class="noo-wrapper">
+		  <!-- START NOO MAINBODY -->
+		  <div class="container noo-mainbody">
+		  	<div class="noo-mainbody-inner">
+		  		<div class="row clearfix">
+				  	<!-- START SIDEBAR -->
+				  	<div class="noo-sidebar noo-sidebar-left col-xs-12 col-md-4">
+							<div class="noo-sidebar-inner">
+								<div class="user-sidebar-menu dashboard-sidebar">
+								  <div class="user-avatar content-thumb">
+								    <img src="images/agent/agent1.jpg" alt="">
+								  </div>
+								  <div class="user-menu-links">
+								    <a href="#" class="user-link active"><i class="fa fa-user"></i>My Profile</a>
+								    <a href="#" class="user-link "><i class="fa fa-home"></i>My Properties</a>
+								  </div>
+								  <div class="user-menu-links user-menu-logout">
+								    <a href="#" class="user-link" title="Logout"><i class="fa fa-sign-out"></i>Log Out</a>
+								  </div>
+								  <div class="user-menu-submit">
+								    <a href="#" class="btn btn-secondary">SUBMIT PROPERTY</a>
+								  </div>
+								</div>
+
+								<h3 class="dashboard-sidebar-title">Your Current Package</h3>
+								<div class="membership-info dashboard-sidebar">
+								  <div class="sidebar-content">
+								    <p><strong>Free Membership</strong></p>
+								    <p>Listing included:&nbsp;3</p>
+								    <p>Listing remain:&nbsp;1</p>
+								    <p>Featured included:&nbsp;1</p>
+								    <p>Featured remain:&nbsp;1</p>
+								    <p>Ends On:&nbsp;Never</p>
+								  </div>
+								</div>
+								<h3 id="subscription-sidebar" class="dashboard-sidebar-title">Change Your Package</h3>
+								<div class="membership-payment dashboard-sidebar">
+								  <div class="sidebar-content">
+								    <form class="subscription_post">
+								      <div class="form-message">
+								      </div>
+								      <div class="form-group">
+								        <div class="dropdown label-select">
+								        	<select class="form-control">
+													  <option>Plus Plan</option>
+													  <option>Premium Plan</option>
+													  <option>Basic Plan</option>
+													</select>
+				  							</div>
+								      </div>
+								      <div class="form-group">
+								        <input type="hidden" name="recurring_payment" class="" value="0">
+								        <label for="recurring_payment" class="checkbox-label">
+								          <input type="checkbox" id="recurring_payment" name="recurring_payment" value="1">make payment recurring</label>
+								      </div>
+								      <div class="form-group recurring_time" style="display: none;">
+								        <label for="recurring_time">Recurring times</label>
+								        <input type="text" id="recurring_time" class="form-control" name="recurring_time" value="3">
+								      </div>
+								      <div class="">
+								        <input type="submit" class="btn btn-secondary" value="PAY WITH PAYPAL">
+								      </div>
+								      <div>
+								      </div>
+								      <div class="package-info">
+								        or&nbsp;
+								        <a href="#">View more detail</a>
+								      </div>
+								    </form>
+								  </div>
+								</div>						
+							</div>
+				  	</div>
+				  	<!-- END SIDEBAR -->
+
+				  	<!-- START MAIN CONTENT -->
+				  	<div class="noo-content col-xs-12 col-md-8">
+				  		<div class="submit-header">
+								<h1 class="page-title">Submit Property</h1>
+							</div>
+							<div class="submit-content">
+							  <form id="new_post" name="new_post" method="post" class="noo-form property-form" role="form">
+							    <div class="noo-control-group">
+							      <div class="group-title">Property Description &amp; Price</div>
+							      <div class="group-container row">
+							        <div class="col-md-8">
+							          <div class="form-group s-prop-title">
+							            <label for="title">Title&nbsp;&#42;</label>
+							            <input type="text" id="title" class="form-control" value="" name="title" required="">
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-area">
+							            <label for="area">Area&nbsp;(sqft)</label>
+							            <input type="text" id="area" class="form-control" value="" name="area">
+							          </div>
+							        </div>
+											<div class="col-md-12">
+											  <div class="form-group s-prop-desc">
+											  	<label for="textarea">Description&nbsp;&#42;</label>
+											    <textarea id="textarea" name="desc" rows="10" required=""></textarea>
+											  </div>
+											</div>
+							        <div class="col-md-8">
+							          <div class="form-group s-prop-price row">
+							            <div class="price col-md-4">
+							              <label for="price">Price&nbsp;&#42;&nbsp;(&#36;)</label>
+							              <input type="text" id="price" class="form-control" value="" name="price" required="">
+							            </div>
+							            <div class="price_label col-md-8">
+							              <label for="price_label">After price label (ex: "per month")</label>
+							              <input type="text" id="price_label" class="form-control" value="" name="price_label">
+							            </div>
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-status">
+							            <label>Status</label>
+							            <div class="dropdown label-select">
+														<select class="form-control">
+														  <option>Sale</option>
+														  <option>Open house</option>
+														  <option>Rent</option>
+														  <option>Sold</option>
+														</select>
+							            </div>
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-type">
+							            <label>Type</label>
+							            <div class="dropdown label-select">
+														<select class="form-control">
+														  <option>Apartment</option>
+														  <option>Co-op</option>
+														  <option>Condo</option>
+														  <option>Single Family Home</option>
+														</select>
+							            </div>
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-bedrooms">
+							            <label for="bedrooms">Bed Rooms</label>
+							            <input type="text" id="bedrooms" class="form-control" value="" name="bedrooms">
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-bathrooms">
+							            <label for="bathrooms">Bath Rooms</label>
+							            <input type="text" id="bathrooms" class="form-control" value="" name="bathrooms">
+							          </div>
+							        </div>
+							      </div>
+							    </div>
+
+							    <div class="noo-control-group">
+							    	<div class="group-title">Property Images</div>
+							      <div class="group-container row">
+							        <div class="col-md-12">
+							          <div id="upload-container">
+							            <div id="aaiu-upload-container">
+							              <div class="moxie-shim moxie-shim-html5">
+                              <label for="input-upload" class="btn btn-secondary btn-lg">Select Images</label>
+							                <input id="input-upload" type="file" multiple="" accept="image/jpeg,image/gif,image/png">
+							              </div>
+							              <p>At least 1 image is required for a valid submission. The featured image will be used to dispaly on property listing page.</p>
+							            </div>
+							          </div>
+							        </div>
+							      </div>
+							    </div>
+
+							    <div class="noo-control-group">
+							      <div class="group-title">Additional Info</div>
+							      <div class="group-container row">
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-_noo_property_field_lot_area">
+							            <label for="_noo_property_field_lot_area">Lot Area</label>
+							            <input type="text" id="_noo_property_field_lot_area" name="noo_property_field[lot_area]" class="form-control" value="">
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-_noo_property_field_year_built">
+							            <label for="_noo_property_field_year_built">Year Built</label>
+							            <input type="text" id="_noo_property_field_year_built" name="noo_property_field[year_built]" class="form-control" value="">
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-_noo_property_field_flooring">
+							            <label for="_noo_property_field_flooring">Flooring</label>
+							            <input type="text" id="_noo_property_field_flooring" name="noo_property_field[flooring]" class="form-control" value="">
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-_noo_property_field_garage_size">
+							            <label for="_noo_property_field_garage_size">Garage Size</label>
+							            <input type="text" id="_noo_property_field_garage_size" name="noo_property_field[garage_size]" class="form-control" value="">
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-_noo_property_field_roofling">
+							            <label for="_noo_property_field_roofling">Roofling</label>
+							            <input type="text" id="_noo_property_field_roofling" name="noo_property_field[roofling]" class="form-control" value="">
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-_noo_property_field_parking">
+							            <label for="_noo_property_field_parking">Parking</label>
+							            <input type="text" id="_noo_property_field_parking" name="noo_property_field[parking]" class="form-control" value="">
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-_noo_property_field_style">
+							            <label for="_noo_property_field_style">Style</label>
+							            <input type="text" id="_noo_property_field_style" name="noo_property_field[style]" class="form-control" value="">
+							          </div>
+							        </div>
+							      </div>
+							    </div>
+							    <div class="noo-control-group">
+							      <div class="group-title">Listing Location</div>
+							      <div class="group-container row">
+							        <div class="col-md-8">
+							          <div class="form-group s-prop-address">
+							            <label for="address">Address&nbsp;&#42;</label>
+							            <textarea id="address" class="form-control" name="address" rows="1" required=""></textarea>
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-location">
+							            <label>Location</label>
+							            <div class="dropdown label-select">
+														<select class="form-control">
+														  <option>New Jersey</option>
+														  <option>New York</option>
+														</select>
+							            </div>
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-lat">
+							            <label for="_noo_property_gmap_latitude">Latitude (for Google Maps)</label>
+							            <input type="text" id="_noo_property_gmap_latitude" class="form-control" value="40.714398" name="lat">
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-long">
+							            <label for="_noo_property_gmap_longitude">Longitude (for Google Maps)</label>
+							            <input type="text" id="_noo_property_gmap_longitude" class="form-control" value="-74.005279" name="long">
+							          </div>
+							        </div>
+							        <div class="col-md-4">
+							          <div class="form-group s-prop-sub_location">
+							            <label>Sub Location</label>
+							            <div class="dropdown label-select">
+														<select class="form-control">
+														  <option>Central New York</option>
+														  <option>GreenVille</option>
+														  <option>Long Island</option>
+														  <option>New York City</option>
+														  <option>West Side</option>
+														</select>
+							            </div>
+							          </div>
+							        </div>
+							        <div class="col-md-12">
+							        
+												<div class="noo_property_google_map">
+												  <div id="noo_property_google_map" class="form-group noo_property_google_map" style="height: 300px; margin-top: 25px; overflow: hidden;position: relative;width: 100%;">
+												  </div>
+												  <div class="noo_property_google_map_search">
+												    <input placeholder="Search your map" type="text" autocomplete="off" id="noo_property_google_map_search_input">
+												  </div>
+												</div>
+												<!-- 
+							          <div class="noo_property_google_map">
+							          	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6042.87818625732!2d-73.981375334459!3d40.77435995322492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25860733933af%3A0x1553791335e3b59a!2sAire%2C+200+W+67th+St%2C+New+York%2C+NY+10023%2C+Hoa+K%E1%BB%B3!5e0!3m2!1svi!2s!4v1415676003718" width="800" height="225" frameborder="0" style="border:0"></iframe>
+							          </div> -->
+							        </div>
+							      </div>
+							    </div>
+							    <div class="row">
+							      <div class="col-md-5">
+							        <div class="noo-control-group small-group">
+							          <div class="group-title">Featured Submission</div>
+							          <div class="group-container row">
+							            <div class="col-md-12">
+							              <div class="form-group s-prop-featured">
+							                <p>You can make this listing featured after your property is approved.</p>
+							              </div>
+							            </div>
+							          </div>
+							        </div>
+							        <div class="noo-control-group small-group">
+							          <div class="group-title">Property Video</div>
+							          <div class="group-container row">
+							            <div class="col-md-12">
+							              <div class="form-group s-prop-video">
+							                <label for="_video_embedded">Video Embedded</label>
+							                <input type="text" id="_video_embedded" class="form-control" value="" name="video">
+							                <small>Enter a Youtube, Vimeo, Soundcloud, etc... URL.</small>
+							              </div>
+							            </div>
+							          </div>
+							        </div>
+							      </div>
+							      <div class="col-md-7">
+							        <div class="noo-control-group small-group">
+							          <div class="group-title">Amenities &amp; Features</div>
+							          <div class="group-container row">
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_attic">
+							                <input type="hidden" name="noo_property_feature[attic]" class="" value="0">
+							                <label for="_noo_property_feature_attic" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_attic" name="noo_property_feature[attic]" class="" value="1">&nbsp;Attic	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_gas-heat">
+							                <input type="hidden" name="noo_property_feature[gas-heat]" class="" value="0">
+							                <label for="_noo_property_feature_gas-heat" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_gas-heat" name="noo_property_feature[gas-heat]" class="" value="1">&nbsp;Gas heat	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_balcony">
+							                <input type="hidden" name="noo_property_feature[balcony]" class="" value="0">
+							                <label for="_noo_property_feature_balcony" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_balcony" name="noo_property_feature[balcony]" class="" value="1">&nbsp;Balcony	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_wine-cellar">
+							                <input type="hidden" name="noo_property_feature[wine-cellar]" class="" value="0">
+							                <label for="_noo_property_feature_wine-cellar" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_wine-cellar" name="noo_property_feature[wine-cellar]" class="" value="1">&nbsp;Wine cellar	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_basketball-court">
+							                <input type="hidden" name="noo_property_feature[basketball-court]" class="" value="0">
+							                <label for="_noo_property_feature_basketball-court" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_basketball-court" name="noo_property_feature[basketball-court]" class="" value="1">&nbsp;Basketball court	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_trash-compactors">
+							                <input type="hidden" name="noo_property_feature[trash-compactors]" class="" value="0">
+							                <label for="_noo_property_feature_trash-compactors" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_trash-compactors" name="noo_property_feature[trash-compactors]" class="" value="1">&nbsp;Trash compactors	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_gym">
+							                <input type="hidden" name="noo_property_feature[gym]" class="" value="0">
+							                <label for="_noo_property_feature_gym" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_gym" name="noo_property_feature[gym]" class="" value="1">&nbsp;Gym	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_fireplace">
+							                <input type="hidden" name="noo_property_feature[fireplace]" class="" value="0">
+							                <label for="_noo_property_feature_fireplace" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_fireplace" name="noo_property_feature[fireplace]" class="" value="1">&nbsp;Fireplace	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_pool">
+							                <input type="hidden" name="noo_property_feature[pool]" class="" value="0">
+							                <label for="_noo_property_feature_pool" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_pool" name="noo_property_feature[pool]" class="" value="1">&nbsp;Pool	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_lake-view">
+							                <input type="hidden" name="noo_property_feature[lake-view]" class="" value="0">
+							                <label for="_noo_property_feature_lake-view" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_lake-view" name="noo_property_feature[lake-view]" class="" value="1">&nbsp;Lake view	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_solar-heat">
+							                <input type="hidden" name="noo_property_feature[solar-heat]" class="" value="0">
+							                <label for="_noo_property_feature_solar-heat" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_solar-heat" name="noo_property_feature[solar-heat]" class="" value="1">&nbsp;Solar Heat	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_storm-windows">
+							                <input type="hidden" name="noo_property_feature[storm-windows]" class="" value="0">
+							                <label for="_noo_property_feature_storm-windows" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_storm-windows" name="noo_property_feature[storm-windows]" class="" value="1">&nbsp;Storm Windows	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_separate-shower">
+							                <input type="hidden" name="noo_property_feature[separate-shower]" class="" value="0">
+							                <label for="_noo_property_feature_separate-shower" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_separate-shower" name="noo_property_feature[separate-shower]" class="" value="1">&nbsp;Separate Shower	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_wet-bar">
+							                <input type="hidden" name="noo_property_feature[wet-bar]" class="" value="0">
+							                <label for="_noo_property_feature_wet-bar" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_wet-bar" name="noo_property_feature[wet-bar]" class="" value="1">&nbsp;Wet bar	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_remodeled">
+							                <input type="hidden" name="noo_property_feature[remodeled]" class="" value="0">
+							                <label for="_noo_property_feature_remodeled" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_remodeled" name="noo_property_feature[remodeled]" class="" value="1">&nbsp;Remodeled	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_skylights">
+							                <input type="hidden" name="noo_property_feature[skylights]" class="" value="0">
+							                <label for="_noo_property_feature_skylights" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_skylights" name="noo_property_feature[skylights]" class="" value="1">&nbsp;Skylights	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_stone-surfaces">
+							                <input type="hidden" name="noo_property_feature[stone-surfaces]" class="" value="0">
+							                <label for="_noo_property_feature_stone-surfaces" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_stone-surfaces" name="noo_property_feature[stone-surfaces]" class="" value="1">&nbsp;Stone Surfaces	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_open-entertaining-kitchen">
+							                <input type="hidden" name="noo_property_feature[open-entertaining-kitchen]" class="" value="0">
+							                <label for="_noo_property_feature_open-entertaining-kitchen" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_open-entertaining-kitchen" name="noo_property_feature[open-entertaining-kitchen]" class="" value="1">&nbsp;Open entertaining Kitchen	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_golf-course">
+							                <input type="hidden" name="noo_property_feature[golf-course]" class="" value="0">
+							                <label for="_noo_property_feature_golf-course" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_golf-course" name="noo_property_feature[golf-course]" class="" value="1">&nbsp;Golf course	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_health-club">
+							                <input type="hidden" name="noo_property_feature[health-club]" class="" value="0">
+							                <label for="_noo_property_feature_health-club" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_health-club" name="noo_property_feature[health-club]" class="" value="1">&nbsp;Health club	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_backyard">
+							                <input type="hidden" name="noo_property_feature[backyard]" class="" value="0">
+							                <label for="_noo_property_feature_backyard" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_backyard" name="noo_property_feature[backyard]" class="" value="1">&nbsp;Backyard	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_pet-allowed">
+							                <input type="hidden" name="noo_property_feature[pet-allowed]" class="" value="0">
+							                <label for="_noo_property_feature_pet-allowed" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_pet-allowed" name="noo_property_feature[pet-allowed]" class="" value="1">&nbsp;Pet allowed	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_officeden">
+							                <input type="hidden" name="noo_property_feature[officeden]" class="" value="0">
+							                <label for="_noo_property_feature_officeden" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_officeden" name="noo_property_feature[officeden]" class="" value="1">&nbsp;Office/den	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							            <div class="col-md-6">
+							              <div class="form-group s-prop-_noo_property_feature_laundry">
+							                <input type="hidden" name="noo_property_feature[laundry]" class="" value="0">
+							                <label for="_noo_property_feature_laundry" class="checkbox-label">
+							                  <input type="checkbox" id="_noo_property_feature_laundry" name="noo_property_feature[laundry]" class="" value="1">&nbsp;Laundry	<i></i>
+							                </label>
+							              </div>
+							            </div>
+							          </div>
+							        </div>
+							      </div>
+							    </div>
+							    <div class="noo-submit row">
+							      <div class="col-md-12">
+							        <input type="submit" class="btn btn-lg rounded metro btn-primary" id="property_submit" value="Add Property">
+							        <label>Your submission will be reviewed by Administrator before it can be published</label>
+							      </div>
+							    </div>
+							  </form>
+							</div>						
+						</div>	  		
+				  	<!-- END MAIN CONTENT -->
+				  </div>
+		  	</div>
+		  </div>
+		  <!-- END NOO MAINBODY -->
+		</div>
+		<!-- END NOO WRAPPER -->
+
+    <!-- START FOOTER -->
+    <footer class="footer">
+      <!-- START FOOTER NAVIGATION -->
+      <div class="footer-nav">
+        <div class="container">
+          <div class="row">
+            <!-- START FOOTER ABOUT US -->
+            <div class="col-xs-12 col-sm-6 col-md-3 footer-nav-col">
+              <div class="ft-about-us">
+                <h4 class="ft-col-title">RealEstate</h4>
+                <div class="text-block">
+                  <p>RealEstate brings wide range of choice, steadily updated property list and market trend for you to figure out your right decision.</p>
+                  <p>You are now at right place for your real estate research.</p>
+                </div>
+              </div>
+            </div>
+            <!-- END ABOUT US -->
+
+            <!-- START FOOTER FEATURED PROPERTIES -->
+            <div class="col-xs-12 col-sm-6 col-md-3 footer-nav-col">
+              <div class="ft-featured-properties">
+                <h4 class="ft-col-title">Featued Property</h4>
+                <div class="featured-property">
+                  <ul>
+                    <li>
+                      <div class="featured-image">
+                        <a href="property-details.html"><img src="images/property/property1.jpg" alt=""></a>
+                      </div>
+                      <div class="featured-decs">
+                        <span class="featured-status"><a href="#"></a></span>
+                        <h4 class="featured-title"><a href="property-details.html" title="Fresno, CA93722">Fresno, CA93722</a></h4>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="featured-image">
+                        <a href="property-details.html"><img src="images/property/property1.jpg" alt=""></a>
+                      </div>
+                      <div class="featured-decs">
+                        <span class="featured-status"><a href="#">For Rent</a></span>
+                        <h4 class="featured-title"><a href="property-details.html" title="AVA High Line">AVA High Line</a></h4>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- END FOOTER FEATURED PROPERTIES -->
+
+            <!-- START FOOTER USEFUL LINKS -->
+            <div class="col-xs-12 col-sm-6 col-md-3 footer-nav-col">
+              <div class="ft-useful-links">
+                <h4 class="ft-col-title">Useful links</h4>
+                <nav class="useful-links-menu" role="navigation">
+                  <ul>
+                    <li class="menu-item"><a href="#">Terms of Use</a></li>
+                    <li class="menu-item"><a href="#">Privacy Policy</a></li>
+                    <li class="menu-item"><a href="#">Contact Support</a></li>
+                    <li class="menu-item"><a href="#">Knowledgebase</a></li>
+                    <li class="menu-item"><a href="#">Careers</a></li>
+                    <li class="menu-item"><a href="#">FAQs</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <!-- END FOOTERUSEFUL LINKS  -->
+
+            <!-- START FOOTER CONTACT INFO -->
+            <div class="col-xs-12 col-sm-6 col-md-3 footer-nav-col">
+              <div class="ft-contact-info">
+                <h4 class="ft-col-title">Contact info</h4>
+                  <ul class="detail-contact-info">
+                    <li><i class="fa fa-map-marker"></i>&nbsp;376 Baker Street, New York</li>
+                    <li><i class="fa fa-phone"></i>&nbsp;(+01)-486-2857</li>
+                    <li><i class="fa fa-envelope-o"></i>&nbsp;<a href="mailto:raheelmalik068@gmail.com">info@realestate.com</a></li>
+                  </ul>
+              </div>
+            </div>
+            <!-- END FOOTER CONTACT INFO -->
+          </div>
+        </div>
+      </div>
+      <!-- END FOOTER NAVIGATION -->
+
+      <!-- START COPYRIGHT -->
+      <div class="copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 text-block">
+              &copy; 2014 RealEstate. All Rights Reserved.
+              <br />
+              <span>Designed by <a title="Visit Nootheme.com!" href="http://www.nootheme.com/" target="_blank">NooTheme.com</a>.</span>
+              <br>
+            </div>
+            <div class="col-xs-12 col-sm-6 logo-block">
+              <div class="logo-image">
+                <a href="index.html"><img src="images/logo/logo-footer.png" alt="RealEstate"></a>
+              </div>
+            </div>
+          </div>          
+        </div>
+       
+        <!-- START BACK TO TOP -->
+        <div id="back-to-top" class="back-to-top">
+          <i class="fa fa-angle-up"></i>
+        </div>
+        <!-- END BACK TO TOP -->
+      </div>
+      <!-- END COPYRIGHT -->
+    </footer>
+    <!-- END FOOTER -->
+  </div>
+  <!-- END SITE -->
+
+  <!-- JQUERY PLUGIN -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+  <script type="text/javascript" src="js/SmoothScroll.js"></script>
+  <script type="text/javascript" src="js/bootstrap3-wysihtml5.custom.min.js"></script>
+  <script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp;libraries=places'></script>
+  <script type="text/javascript" src="js/infobox.js"></script>
+  <script type="text/javascript" src="js/markerclusterer.js"></script>
+
+  <!-- THEME SCRIPT -->
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/noo-property-google-map.js"></script>
+  <script type="text/javascript" src="js/property.js"></script>
+  <script type="text/javascript" src="js/data-nooGmapL10n.js"></script>
+
+</body>
+
+</html>

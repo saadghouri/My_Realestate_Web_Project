@@ -1,0 +1,1 @@
+ALTER TABLE `user_info` CHANGE `phone_no` `phone_no` VARCHAR(15) NOT NULL;

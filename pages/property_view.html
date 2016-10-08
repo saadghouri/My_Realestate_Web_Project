@@ -1,0 +1,331 @@
+
+<!-- START NOO MAINBODY -->
+<div class="container noo-mainbody" ng-init="init()">
+    <div class="noo-mainbody-inner">
+        <div class="row clearfix">
+            <!-- START MAIN CONTENT -->
+            <div class="noo-content col-xs-12 col-md-8">
+                <!-- START ARTICLE PROPERTY -->
+                <article class="property">
+                    <h1 class="property-title">
+                        {{propertyData.title}}
+                        <small>{{propertyData.address}}</small>
+                        <small>{{propertyData.city}}, {{propertyData.state}}</small>
+                        <small>{{propertyData.posted}} <em>({{propertyData.posted1}})</em></small>
+                    </h1>
+
+                    <div class="clearfix">
+                        <img src="{{propertyImage}}" alt="" />
+                    </div>
+                    <br/>
+
+                    <div class="property-summary">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="property-detail">
+                                    <h4 class="property-detail-title">Property Detail</h4>
+                                    <div class="property-detail-content">
+                                        <div class="detail-field row">
+                                            <span class="col-xs-6 col-md-5 detail-field-label">Type</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value">{{propertyData.type}}</span>
+
+                                            <span class="col-xs-6 col-md-5 detail-field-label">Status</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value">{{propertyData.status}}</span>
+
+                                            <span class="col-xs-6 col-md-5 detail-field-label">Price</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value">
+                                                <span class="amount">&#36;{{propertyData.price}}</span>
+                                            </span>
+
+                                            <span class="col-xs-6 col-md-5 detail-field-label" ng-if="propertyData.area">Area</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value" ng-if="propertyData.area">{{propertyData.area}} ftsq</span>
+
+                                            <span class="col-xs-6 col-md-5 detail-field-label" ng-if="propertyData.bedrooms">Bedrooms</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value" ng-if="propertyData.bedrooms">{{propertyData.bedrooms}}</span>
+
+                                            <span class="col-xs-6 col-md-5 detail-field-label" ng-if="propertyData.bathrooms">Bathrooms</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value" ng-if="propertyData.bathrooms">{{propertyData.bathrooms}}</span>
+
+                                            <span class="col-xs-6 col-md-5 detail-field-label" ng-if="propertyData.lotArea">Lot Area</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value" ng-if="propertyData.lotArea">{{propertyData.lotArea}}</span>
+
+                                            <span class="col-xs-6 col-md-5 detail-field-label" ng-if="propertyData.yearBuilt">Year Built</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value" ng-if="propertyData.yearBuilt">{{propertyData.yearBuilt}}</span>
+
+                                            <span class="col-xs-6 col-md-5 detail-field-label" ng-if="propertyData.flooring">Flooring</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value" ng-if="propertyData.flooring">{{propertyData.flooring}}</span>
+
+                                            <span class="col-xs-6 col-md-5 detail-field-label" ng-if="propertyData.roofing">Roofing</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value" ng-if="propertyData.roofing">{{propertyData.roofing}}</span>
+
+                                            <span class="col-xs-6 col-md-5 detail-field-label" ng-if="propertyData.parking">Parking</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value" ng-if="propertyData.parking">{{propertyData.parking}}</span>
+
+                                            <span class="col-xs-6 col-md-5 detail-field-label" ng-if="propertyData.style">Style</span>
+                                            <span class="col-xs-6 col-md-7 detail-field-value" ng-if="propertyData.style">{{propertyData.style}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="property-desc">
+                                    <h4 class="property-detail-title">Property Description</h4>
+                                    <p>
+                                        {{propertyData.description}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+<!--                    <div class="property-video" ng-show="{{propertyData.video}}">
+                        <h4 class="property-video-title">Property Video</h4>
+                        <div class="property-video-content">
+                            <iframe width="900" height="506" src="{{propertyData.video}}" allowfullscreen></iframe>
+                        </div>
+                    </div>-->
+
+<!--                    <div class="property-map">
+                        <h4 class="property-map-title">Find this property on map</h4>
+                        <div class="property-map-content">
+                            <div class="property-map-search">
+                                <input placeholder="Search your map" type="text" autocomplete="off" id="property_map_search_input">
+                            </div>
+                            <div id="property-map-7292" class="property-map-box" data-latitude="{{propertyData.latitude}}" data-longitude="{{propertyData.longitude}}"></div>
+                        </div>
+                    </div>-->
+                </article>
+                <div>
+                    <div class="agent-property-title" ng-if="offerList != ''">
+                        <h3>Offer List (<span style='color:red'>{{totalOffers}}</span>)</h3>
+                    </div>
+                    <div class="agents grid clearfix">
+                        <article class="hentry" ng-repeat='att in offerList'>
+                            <div class="agent-wrap">
+                                <div class="agent-summary">
+                                    <div class="agent-info">
+                                        <div><i class="fa fa-envelope-square"></i>&nbsp;{{att.email}}</div><br>
+                                        <div><i class="fa fa-user"></i>&nbsp;{{att.name}}</div><br>
+                                        <div><i class="fa fa-dollar"></i>&nbsp;${{att.price}}</div><br>
+                                        <div><i class="fa fa-clock-o"></i>&nbsp;{{att.timestampCreated}}</div><br>
+                                        <div><i class="fa fa-comment"></i>&nbsp;{{att.message}}</div><br>
+                                        <div ng-show='att.accepted == 0 && propertyData.status != "Sold" && propertyOwner' ><button type='button' class='btn square metro btn-primary' ng-click='acceptOffer(att.id)'>Accept Offer</button></div>
+                                        <div ng-show="att.accepted == 1" style="color: green"><i class="fa fa-check"></i>Offer Accepted</div>
+                                        <!--<div></div>-->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- END ARTICLE PROPERTY -->
+
+                <!-- START AGENT PROPERTY -->
+                <div class="agent-property" ng-if='propertyData.status != "Sold"'>
+                    <p style="color:red;" ng-show="!makeOffer && !propertyOwner">In order to make an offer, You need to <a href="#/login">login</a></p>
+                    <p style="color:red;" ng-show="offerAlreadyMade">You have already make an offer. <a href="#/offers">Click here</a> to see your offers.</p>
+                    <div ng-show="makeOffer && !offerAlreadyMade">
+                        <div class="agent-property-title">
+                            <h3>Make Offer</h3>
+                        </div>
+                        <div class="conact-agent">
+                            <form id="offerForm" name="offerForm" class="noo-form property-form"  ng-submit="submitOffer(offerForm.$valid)" role="form" autocomplete="off">
+<!--                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name *" ng-model="offerData.name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email *" ng-model="offerData.email">
+                                </div>-->
+                                <div class="form-group" ng-class="{ 'has-error' : offerForm.price.$invalid && !offerForm.price.$pristine }">
+                                    <input type="number" min='0' name="price" class="form-control" placeholder="Offer Price($) *" ng-model="offerData.price" required=''>
+                                </div>
+                                <div class="form-group" ng-class="{ 'has-error' : offerForm.message.$invalid && !offerForm.message.$pristine }">
+                                    <textarea name="message" class="form-control" placeholder="Message *" ng-model="offerData.message" required=""></textarea>
+                                </div>
+                                <div class="form-action">
+                                    <button type="submit" class="btn square metro btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <br/><br/>
+                    <div class="agent-property-title">
+                        <h3>Contact Owner</h3>
+                    </div>
+                    <div class="agents grid clearfix">
+                        <article class="hentry">
+                            <div class="agent-wrap">
+                                <div class="agent-summary">
+                                    <div class="agent-info">
+                                        <div><i class="fa fa-phone"></i>&nbsp;{{owner.phone_no}}</div><br/>
+                                        <div><i class="fa fa-envelope-square"></i>&nbsp;{{owner.email}}</div><br/>
+                                        <div><i class="fa fa-user"></i>&nbsp;{{owner.first_name}} {{owner.last_name}}</div><br/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- START AGENT PROPERTY -->
+            </div>	  		
+            <!-- END MAIN CONTENT -->
+
+            <!-- START SIDEBAR -->
+            <div class="noo-sidebar noo-sidebar-right col-xs-12 col-md-4">
+                <div class="noo-sidebar-inner">
+                    <!-- START FIND PROPERTY -->
+                    <div class="block-sidebar find-property">
+                        <h3 class="title-block-sidebar">Find Property</h3>
+                        <div class="gsearch">
+                            <div class="gsearch-wrap">
+                                <form class="gsearchform" method="get" role="search">
+                                    <div class="gsearch-content">
+                                        <div class="gsearch-field">
+                                            <div class="form-group" >
+                                                <select class="form-control input-lg" id="country" ng-model="states" ng-options="country for (country, states) in countries">
+                                                    <option value=''>All Countries</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <select class="form-control input-lg" id="state" ng-model="cities" ng-options="state for (state,city) in states">
+                                                    <option value=''>All States</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <select class="form-control input-lg" id="city" ng-model="searchData.city" ng-options="city for city in cities">
+                                                    <option value=''>All Cities</option>
+                                                </select>
+                                            </div>
+
+
+                                            <div class="form-group gstatus">
+                                                <div class="label-select">
+                                                    <select class="form-control" ng-model="searchData.status" >
+                                                        <option value="">All Status</option>
+                                                        <option value="Open House">Open house</option>
+                                                        <option value="Rent">Rent</option>
+                                                        <option value="Sale">Sale</option>
+                                                        <option value="Sold">Sold</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group gtype">
+                                                <div class="label-select">
+                                                    <select class="form-control" ng-model="searchData.types" >
+                                                        <option value="">All Type </option>
+                                                        <option value="Apartment">Apartment</option>
+                                                        <option value="Co-op">Co-op</option>
+                                                        <option value="Condo">Condo</option>
+                                                        <option value="Single Family Home">Single Family Home</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group gbed">
+                                                <div class="label-select">
+                                                    <select class="form-control" ng-model="searchData.bedrooms" >
+                                                        <option value="">No. of Bedrooms</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5+</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group gbath">
+                                                <div class="label-select">
+                                                    <select class="form-control" ng-model="searchData.bathrooms" >
+                                                        <option value="">No. of Bathrooms</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4+</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group gprice">
+                                                <div class="label-select">
+                                                    <select class="form-control" ng-model="searchData.price" >
+                                                        <option value="">All Prices</option>
+                                                        <option value="1">Less than 1000</option>
+                                                        <option value="2">1000 - 5000</option>
+                                                        <option value="3">5001 - 10000</option>
+                                                        <option value="4">10000 - 50000</option>
+                                                        <option value="5">50000+</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group s-prop-_noo_property_feature_school">
+                                                <input type="hidden" name="noo_property_feature[school]" class="" value="0">
+                                                <label for="_noo_property_feature_school" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_school" name="noo_property_feature[school]" ng-model="searchData.school" class="" value="1">&nbsp;School	<i></i>
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group s-prop-_noo_property_feature_hospital">
+                                                <input type="hidden" name="noo_property_feature[hospital]" class="" value="0">
+                                                <label for="_noo_property_feature_hospital" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_hospital" name="noo_property_feature[hospital]" ng-model="searchData.hospital" class="" value="1">&nbsp;Hospital	<i></i>
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group s-prop-_noo_property_feature_shopping_center">
+                                                <input type="hidden" name="noo_property_feature[shopping_center]" class="" value="0">
+                                                <label for="_noo_property_feature_shopping_center" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_shopping_center" name="noo_property_feature[shopping_center]" ng-model="searchData.shopping_center" class="" value="1">&nbsp;Shopping Center	<i></i>
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group s-prop-_noo_property_feature_park">
+                                                <input type="hidden" name="noo_property_feature[park]" class="" value="0">
+                                                <label for="_noo_property_feature_park" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_park" name="noo_property_feature[park]" ng-model="searchData.park" class="" value="1">&nbsp;Park	<i></i>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="gsearch-action">
+                                            <div class="gsubmit">
+                                                <a class="btn btn-deault" ng-click="searchProperty()">Search Property</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END FIND PROPERTY -->
+
+                    <!-- START RECENT PROPERTY -->
+                    <div class="block-sidebar recent-property">
+                        <h3 class="title-block-sidebar">Recent Property</h3>
+                        <div class="featured-property">
+                            <ul>
+                                <li ng-repeat="att in recentProperty">
+                                    <div class="featured-image">
+                                        <a href="#/property/view/{{att.id}}"><img src="{{att.image_path}}" alt=""></a>
+                                    </div>
+                                    <div class="featured-decs">
+                                        <span class="featured-status"><a href="#/property/view/{{att.id}}">{{att.status}}</a></span>
+                                        <h4 class="featured-title"><a href="#/property/view/{{att.id}}" title="{{att.title}}">{{att.title}}</a></h4>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- END RECENT PROPERTY -->
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+        </div>
+    </div>
+</div>
+<!-- END NOO MAINBODY -->

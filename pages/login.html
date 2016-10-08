@@ -1,0 +1,106 @@
+
+<!-- START NOO MAINBODY -->
+<div class="container-fluid noo-mainbody" ng-init="init()">
+    <div class="noo-mainbody-inner">
+        <div class="row clearfix">
+            <!--START MAIN CONTENT -->
+            <div class="noo-content col-xs-12">
+                <div class="page-content row">
+                    <div class="col-md-12">
+                        <div class="noo-logreg both">
+                            <div class="logreg-container">
+                                <div class="row clearfix logreg-content">
+                                    <div class="col-md-6 login-form">
+                                        <form name="loginForm" ng-submit="submitLoginForm(loginForm.$valid)" role="form" autocomplete="off">
+                                            <div class="logreg-title">Login Form</div>
+                                            <p class="logreg-desc">Already a member of RealEstate. Please use the form below to log in site.</p>
+                                            <div class="form-message">
+                                                <div class="alert alert-success fade in" ng-if="message">
+                                                    <span ng-if="message">
+                                                        {{ message | i18next }}
+                                                    </span>
+                                                </div>
+                                                <div class="alert alert-danger fade in" ng-if="systemErrors">
+                                                    <span ng-if="systemErrors">
+                                                        {{ systemErrors | i18next }}
+                                                    </span>									            	
+                                                </div>
+                                            </div>
+                                            <div class="logreg-content">
+                                                <div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
+                                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email *" required ng-model="loginData.email">
+                                                    
+                                                    <p ng-show="loginForm.email.$error.required && loginForm.email.$dirty" class="help-block">{{ 'errors.email_r' | i18next}}</p>
+                                                    <p ng-show="!loginForm.email.$error.required && loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">{{ 'errors.email_invalid' | i18next }}</p>
+                                                </div>
+                                                <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password *" required ng-model="loginData.password">
+                                                    
+                                                    <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">{{ 'errors.password' | i18next }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="logreg-action">
+                                                <button type="submit" class="btn navbar-btn" data-complete-text="Logged In!" data-loading-text="Logging In" >Login</button>
+                                            </div>
+                                            <!--<p class="logreg-desc">Lost your password? <a href="#">Click here to reset</a>-->
+                                            </p>
+                                        </form>
+                                    </div>
+
+                                    <div class="col-md-6 register-form">
+                                        <form name="registerForm" id="registerform" ng-submit="submitRegisterForm(registerForm.$valid)" role="form" autocomplete="off">
+                                            <div class="logreg-title">Register Form</div>
+                                            <p class="logreg-desc">Don't have an account? Please fill in the form below to create one.</p>
+                                            <div class="form-message">
+                                                <div class="alert alert-success fade in" ng-if="reg_message">
+                                                    <span ng-if="reg_message">
+                                                        {{ reg_message | i18next }}
+                                                    </span>
+                                                </div>
+                                                <div class="alert alert-danger fade in" ng-if="reg_systemErrors">
+                                                    <span ng-if="reg_systemErrors">
+                                                        {{ reg_systemErrors | i18next }}
+                                                    </span>									            	
+                                                </div>
+                                            </div>
+                                            <div class="logreg-content">
+                                                <div class="form-group" ng-class="{ 'has-error' : registerForm.first_name.$invalid && !registerForm.first_name.$pristine }">
+                                                    <label for="first_name" class="sr-only">First Name</label>
+                                                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name *" required="" ng-model="registerData.first_name">
+                                                </div>
+                                                <div class="form-group" ng-class="{ 'has-error' : registerForm.last_name.$invalid && !registerForm.last_name.$pristine }">
+                                                    <label for="last_name" class="sr-only">Last Name</label>
+                                                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name *" required="" ng-model="registerData.last_name">
+                                                </div>
+                                                <div class="form-group" ng-class="{ 'has-error' : registerForm.phone_no.$invalid && !registerForm.phone_no.$pristine }">
+                                                    <label for="phone_no" class="sr-only">Phone no.</label>
+                                                    <input type="number" class="form-control" id="phone_no" name="phone_no" placeholder="Phone no. *" required="" ng-model="registerData.phone_no">
+                                                </div>
+                                                <div class="form-group" ng-class="{ 'has-error' : registerForm.reg_email.$invalid && !registerForm.reg_email.$pristine }">
+                                                    <label for="reg_email" class="sr-only">Your Email</label>
+                                                    <input type="email" class="form-control" id="reg_email" name="reg_email" placeholder="Email *" required="" ng-model="registerData.reg_email">
+                                                    
+                                                    <p ng-show="registerForm.reg_email.$error.required && registerForm.reg_email.$dirty" class="help-block">{{ 'errors.email_r' | i18next}}</p>
+                                                    <p ng-show="!registerForm.reg_email.$error.required && registerForm.reg_email.$invalid && !registerForm.reg_email.$pristine" class="help-block">{{ 'errors.email_invalid' | i18next }}</p>
+                                                </div>
+                                                <div class="form-group" ng-class="{ 'has-error' : registerForm.reg_password.$invalid && !registerForm.reg_password.$pristine }">
+                                                    <label for="reg_password" class="sr-only">Password</label>
+                                                    <input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="Password *" required="" ng-model="registerData.reg_password">
+                                                </div>
+                                            </div>
+                                            <div class="logreg-action">
+                                                <button type="submit" class="btn navbar-btn" ng-disabled="registerForm.$invalid">Register Account</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>	  		
+            </div>	  		
+            <!-- END MAIN CONTENT -->
+        </div>
+    </div>
+</div>
+<!-- END NOO MAINBODY -->

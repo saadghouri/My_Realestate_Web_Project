@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>RealEstate - Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/icon/favicon.jpg" type="image/x-icon">
+
+  <!-- GOOGLE WEB FONTS INCLUDE -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
+
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/datepicker.css">
+
+  <!-- THEME STYLESHEETS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shortcode.css">
+  <link rel="stylesheet" href="css/color/color1.css">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="page-right-sidebar">
+  <!-- START SITE -->
+  <div class="site">
+    <!-- START HEADER -->
+    <header class="noo-header">
+      <!-- START TOP HEADER -->
+      <div class="top-header">
+        <div class="container">
+          <div class="top-header-inner">
+            <ul class="social-top">
+              <li><a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+              <li><a href="#" title="RSS" target="_blank"><i class="fa fa-rss"></i></a></li>
+            </ul>
+
+            <div class="top-header-content">
+              <div class="emailto content-item">
+                <a href="mailto:raheelmalik068@gmail.com"><i class="fa fa-envelope-o"></i>&nbsp;Email:info@realestate.com</a>
+              </div>
+              <div class="register content-item">
+                <a href="#/login"><i class="fa fa-key"></i>&nbsp;Register</a>
+              </div>
+              <div class="login content-item">
+                <a href="#/login"><i class="fa fa-sign-in"></i>&nbsp;Login</a>
+              </div>
+              <!-- <div class="logout content-item">
+                <a href="#"><i class="fa fa-sign-out"></i>&nbsp;Logout</a>
+              </div> -->
+              <div class="header-search">
+                <label for="input-header-search"><i class="fa fa-search"></i></label>
+                <input type="text" id="input-header-search" placeholder="Search">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END TOP HEADER -->
+
+      <!-- START MAIN NAVIGATION WRAP -->
+      <div class="main-nav-wrap container">
+        <!-- START NAVBAR TOGGLE & LOGO -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="logo">
+            <div class="logo-image">
+              <a href="#/" title="RealEstate"></a>
+            </div>
+          </div>
+        </div>
+        <!-- END NAVBAR TOGGLE & LOGO -->
+
+        <!-- START CALLING INFO -->
+        <div class="calling-info">
+          <div class="calling-content">
+            <i class="fa fa-mobile"></i>
+            <div class="calling-desc">
+              CALL  US  NOW<br>
+              <span><a href="tel:(+01)-793-7938">(+01)-793-7938</a></span>
+            </div>
+          </div>
+        </div>
+        <!-- END CALLING INFO -->
+
+        <!-- START MAIN NAVIGATION -->
+        <div class="main-navigation">
+          <nav class="collapse navbar-collapse" id="main-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#/">Home&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="home-map-vertical.html">Home Map Vertical</a></li>
+                  <li><a href="home-map-horizontal.html">Home Map Horizontal</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#">Properties&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu">
+                    <a href="#">List</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="list-with-sidebar.html">With Sidebar</a></li>
+                      <li><a href="list-no-sidebar.html">No Sidebar</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu">
+                    <a href="#">Grid</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="grid-with-sidebar.html">With Sidebar</a></li>
+                      <li><a href="grid-no-sidebar.html">No Sidebar</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="property-details.html">Property details</a></li>
+                </ul>
+              </li>
+              <li class="dropdown active">
+                <a href="#">Features&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="dropdown-submenu">
+                    <a href="#">Blog</a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <li><a href="blog.html">Blog</a></li>
+                      <li><a href="default-blog-left-sidebar.html">Default Blog Left Sidebar</a></li>
+                      <li><a href="default-blog-right-sidebar.html">Default Blog Right Sidebar</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu">
+                    <a href="#">Shortcodes</a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <li><a href="shortcodes.html">Shortcodes</a></li>
+                      <li><a href="citilights-shortcode.html">Citilights Shortcode</a></li>
+                      <li><a href="pricing-table.html">Pricing Table</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#">Agents&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="agents-listing.html">Agents Listing</a></li>
+                  <li><a href="agents-detail.html">Agents Detail</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#">Submit&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="my-profile.html">My Profile</a></li>
+                  <li><a href="my-properties.html">My Properties</a></li>
+                  <li><a href="submit-proprety.html">Submit Proprety</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="contact.html">Contact&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="contact1.html">Contact 1</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- END MAIN NAVIGATION -->
+      </div>
+      <!-- END MAIN NAVIGATION WRAP -->
+    </header>
+    <!-- END HEADER -->
+
+    <!-- START NOO WRAPPER -->
+    <div class="noo-wrapper">
+		  <!-- START NOO MAINBODY -->
+		  <div class="container noo-mainbody">
+		  	<div class="noo-mainbody-inner">
+		  		<div class="row clearfix">
+				  	<!-- START MAIN CONTENT -->
+						<div class="noo-content col-xs-12 col-md-8 blog-page standard-blog">
+							<article class="hentry format-standard has-featured">
+							  <div class="content-wrap">
+							    <header class="content-header">
+							      <h2 class="content-title">
+							        <a href="blog-detail.html" title="Permanent link to: &quot;Never Eat Alone, Find Your Dinner-Mate&quot;">Never Eat Alone, Find Your Dinner-Mate</a>
+							      </h2>
+							      <p class="content-meta">
+							        <i class="fa fa-file-image-o nooicon-file-image-o"></i>
+							        <span>
+							          Posted in
+							          <a href="#" title="View all posts in: “Dining”"> Dining</a>
+							        </span>
+							        <span>
+							          on
+							          <time class="entry-date" datetime="2014-07-21T10:16:42+00:00">
+							            July 21, 2014
+							          </time>
+							        </span>
+							        <span>
+							          by
+							          <a href="#" title="Posts by admin" rel="author">admin</a>
+							        </span>
+							        <span><a href="#" title="Leave a comment on: “Never Eat Alone, Find Your Dinner-Mate”" class="meta-comments"><i class="fa fa-comments fa fa-comments nooicon-comments"></i>  Leave a Comment</a>
+							        </span>
+							      </p>
+							    </header>
+							    <div class="content-featured">
+							      <a class="content-thumb" href="blog-detail.html" title="Permalink to: &quot;Never Eat Alone, Find Your Dinner-Mate&quot;">
+							        <img src="images/blog/blog-img1.jpg" class="attachment-property-image" alt="">
+							      </a>
+							    </div>
+							    <div class="content-excerpt">
+							      <p>Vestibulum sapien nisl, ornare auctor, consectetuer quis, posuere tristique, odio. Fusce ultrices ullamcorper odio. Ut augue nulla, interdum at, adipiscing non, tristique eget, neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut pede est, condimentum id, scelerisque ac, malesuada non, quam. Proin eu ligula ac sapien suscipit blandit. Suspendisse euismod. Ut accumsan, neque id…
+							      </p>
+							      <div><a href="blog-detail.html" class="read-more">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
+							      </div>
+							    </div>
+							  </div>
+							</article>
+							
+							<article class="hentry format-video has-featured">
+							  <div class="content-wrap">
+							    <header class="content-header">
+							      <h2 class="content-title">
+							        <a href="blog-detail.html" title="Permanent link to: &quot;News from Nintendo&quot;">News from Nintendo</a>
+							      </h2>
+							      <p class="content-meta">
+							        <i class="fa fa-file-video-o nooicon-file-video-o"></i>
+							        <span>
+							          Posted in
+							          <a href="#" title="View all posts in: “Game”"> Game</a>
+							        </span>
+							        <span>
+							          on
+							          <time class="entry-date" datetime="2014-08-21T01:48:55+00:00">
+							            August 21, 2014
+							          </time>
+							        </span>
+							        <span>
+							          by
+							          <a href="#" title="Posts by admin">admin</a>
+							        </span>
+							        <span><a href="#" title="Leave a comment on: “News from Nintendo”" class="meta-comments"><i class="fa fa-comments nooicon-comments"></i>  Leave a Comment</a>
+							        </span>
+							      </p>
+							    </header>
+							    <div class="content-featured">
+							      <div class="noo-video-container">
+							        <div class="video-inner">
+							          <iframe src="//player.vimeo.com/video/70527329" width="500" height="281" allowfullscreen></iframe>
+							          <p><a href="http://vimeo.com/70527329">Battle Camp - Launch Trailer</a> from <a href="http://vimeo.com/pennypopgames">PennyPop Games</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+							        </div>
+							      </div>
+							    </div>
+							    <div class="content-excerpt">
+							      <p>Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris, sed placerat ipsum urna sed risus. In convallis tellus a mauris. Curabitur non elit ut libero tristique sodales. Mauris a lacus. Donec mattis semper leo. In hac habitasse platea dictumst. Vivamus facilisis diam at odio. Mauris dictum, nisi eget consequat elementum, lacus ligula molestie metus, non feugiat orci magna ac…
+							      </p>
+							      <div><a href="blog-detail.html" class="read-more">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
+							      </div>
+							    </div>
+							  </div>
+							</article>
+
+							<article class="hentry format-standard has-featured">
+							  <div class="content-wrap">
+							    <header class="content-header">
+							      <h2 class="content-title">
+							        <a href="blog-detail.html" title="Permanent link to: &quot;Which Trend For This Fall-Winter?&quot;">Which Trend For This Fall-Winter?</a>
+							      </h2>
+							      <p class="content-meta">
+							        <i class="fa fa-file-image-o nooicon-file-image-o"></i>
+							        <span>
+							          Posted in
+							          <a href="#" title="View all posts in: “Fashion”"> Fashion</a>
+							        </span>
+							        <span>
+							          on
+							          <time class="entry-date" datetime="2014-08-20T09:56:53+00:00">
+							            August 20, 2014
+							          </time>
+							        </span>
+							        <span>
+							          by
+							          <a href="#" title="Posts by admin" rel="author">admin</a>
+							        </span>
+							        <span><a href="#" title="View all comments on: “Which Trend For This Fall-Winter?”" class="meta-comments"><i class="fa fa-comments nooicon-comments"></i>  3 Comments</a>
+							        </span>
+							      </p>
+							    </header>
+							    <div class="content-featured">
+							      <a class="content-thumb" href="blog-detail.html" title="Permalink to: &quot;Which Trend For This Fall-Winter?&quot;">
+							        <img src="images/blog/blog-img1.jpg" class="attachment-property-image" alt="">
+							      </a>
+							    </div>
+							    <div class="content-excerpt">
+							      <p>When it comes to real estate, it’s all about location. But when it comes to staging a home to sell the highest possible price, the importance of location applies to more than just the street. The placement of your furniture and accessories can make or break a room and potentially even a sale. Why it matter? The look and feel…
+							      </p>
+							      <div><a href="blog-detail.html" class="read-more">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
+							      </div>
+							    </div>
+							  </div>
+							</article>
+
+							<article class="hentry format-image has-featured">
+							  <div class="content-wrap">
+							    <header class="content-header">
+							      <h2 class="content-title">
+							        <a href="blog-detail.html" title="Permanent link to: &quot;5-Minute Drink Recipies For Your Summer&quot;">5-Minute Drink Recipies For Your Summer</a>
+							      </h2>
+							      <p class="content-meta">
+							        <i class="fa fa-file-image-o nooicon-file-image-o"></i>
+							        <span>
+							          Posted in
+							          <a href="#" title="View all posts in: “Dining”"> Dining</a>
+							        </span>
+							        <span>
+							          on
+							          <time class="entry-date" datetime="2014-07-21T10:21:52+00:00">
+							            July 21, 2014
+							          </time>
+							        </span>
+							        <span>
+							          by
+							          <a href="#" title="Posts by admin" rel="author">admin</a>
+							        </span>
+							        <span><a href="#" title="Leave a comment on: “5-Minute Drink Recipies For Your Summer”" class="meta-comments"><i class="fa fa-comments nooicon-comments"></i>  Leave a Comment</a>
+							        </span>
+							      </p>
+							    </header>
+							    <div class="content-featured">
+							      <a class="content-thumb" href="blog-detail.html" title="Permalink to: &quot;5-Minute Drink Recipies For Your Summer&quot;">
+							        <img src="images/blog/blog-img1.jpg" class="attachment-property-image" alt="">
+							      </a>
+							    </div>
+							  </div>
+							</article>
+
+							<article class="hentry format-standard has-featured">
+							  <div class="content-wrap">
+							    <header class="content-header">
+							      <h2 class="content-title">
+							        <a href="blog-detail.html" title="Permanent link to: &quot;Easy Steps To Prepare Your Family Dinner Table&quot;">Easy Steps To Prepare Your Family Dinner Table</a>
+							      </h2>
+							      <p class="content-meta">
+							        <i class="fa fa-file-image-o nooicon-file-image-o"></i>
+							        <span>
+							          Posted in
+							          <a href="#" title="View all posts in: “Dining”"> Dining</a>
+							        </span>
+							        <span>
+							          on
+							          <time class="entry-date" datetime="2014-07-21T10:20:21+00:00">
+							            July 21, 2014
+							          </time>
+							        </span>
+							        <span>
+							          by
+							          <a href="#" title="Posts by admin" rel="author">admin</a>
+							        </span>
+							        <span><a href="#" title="Leave a comment on: “Easy Steps To Prepare Your Family Dinner Table”" class="meta-comments"><i class="fa fa-comments nooicon-comments"></i>  Leave a Comment</a>
+							        </span>
+							      </p>
+							    </header>
+							    <div class="content-featured">
+							      <a class="content-thumb" href="blog-detail.html" title="Permalink to: &quot;Easy Steps To Prepare Your Family Dinner Table&quot;">
+							        <img src="images/blog/blog-img1.jpg" class="attachment-property-image" alt="">
+							      </a>
+							    </div>
+							    <div class="content-excerpt">
+							      <p>Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris, sed placerat ipsum urna sed risus. In convallis tellus a mauris. Curabitur non elit ut libero tristique sodales. Mauris a lacus. Donec mattis semper leo. In hac habitasse platea dictumst. Vivamus facilisis diam at odio. Mauris dictum, nisi eget consequat elementum, lacus ligula molestie metus, non feugiat orci magna ac…
+							      </p>
+							      <div><a href="blog-detail.html" class="read-more">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
+							      </div>
+							    </div>
+							  </div>
+							</article>
+
+							<article class="hentry format-standard has-featured">
+							  <div class="content-wrap">
+							    <header class="content-header">
+							      <h2 class="content-title">
+							        <a href="blog-detail.html" title="Permanent link to: &quot;10 Facts About Wines You May Want To Know&quot;">10 Facts About Wines You May Want To Know</a>
+							      </h2>
+							      <p class="content-meta">
+							        <i class="fa fa-file-image-o nooicon-file-image-o"></i>
+							        <span>
+							          Posted in
+							          <a href="#" title="View all posts in: “Dining”"> Dining</a>
+							        </span>
+							        <span>
+							          on
+							          <time class="entry-date" datetime="2014-07-21T10:18:27+00:00">
+							            July 21, 2014
+							          </time>
+							        </span>
+							        <span>
+							          by
+							          <a href="#" title="Posts by admin" rel="author">admin</a>
+							        </span>
+							        <span><a href="#" title="Leave a comment on: “10 Facts About Wines You May Want To Know”" class="meta-comments"><i class="fa fa-comments nooicon-comments"></i>  Leave a Comment</a>
+							        </span>
+							      </p>
+							    </header>
+							    <div class="content-featured">
+							      <a class="content-thumb" href="blog-detail.html" title="Permalink to: &quot;10 Facts About Wines You May Want To Know&quot;">
+							        <img src="images/blog/blog-img1.jpg" class="attachment-property-image" alt="">
+							      </a>
+							    </div>
+							    <div class="content-excerpt">
+							      <p>Aliquam vehicula sem ut pede. Cras purus lectus, egestas eu, vehicula at, imperdiet sed, nibh. Morbi consectetuer luctus felis. Donec vitae nisi. Aliquam tincidunt feugiat elit. Duis sed elit ut turpis ullamcorper feugiat. Praesent pretium, mauris sed fermentum hendrerit, nulla lorem iaculis magna, pulvinar scelerisque urna tellus a justo. Suspendisse pulvinar massa in metus. Duis quis quam. Proin justo. Curabitur…
+							      </p>
+							      <div><a href="blog-detail.html" class="read-more">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
+							      </div>
+							    </div>
+							  </div>
+							</article>
+
+							<article class="hentry format-standard has-featured">
+							  <div class="content-wrap">
+							    <header class="content-header">
+							      <h2 class="content-title">
+							        <a href="blog-detail.html" title="Permanent link to: &quot;What Should Be Wise Food Choice For Your First Date?&quot;">What Should Be Wise Food Choice For Your First Date?</a>
+							      </h2>
+							      <p class="content-meta">
+							        <i class="fa fa-file-image-o nooicon-file-image-o"></i>
+							        <span>
+							          Posted in
+							          <a href="#" title="View all posts in: “Dining”"> Dining</a>
+							        </span>
+							        <span>
+							          on
+							          <time class="entry-date" datetime="2014-07-21T10:14:32+00:00">
+							            July 21, 2014
+							          </time>
+							        </span>
+							        <span>
+							          by
+							          <a href="#" title="Posts by admin" rel="author">admin</a>
+							        </span>
+							        <span><a href="#" title="Leave a comment on: “What Should Be Wise Food Choice For Your First Date?”" class="meta-comments"><i class="fa fa-comments nooicon-comments"></i>  Leave a Comment</a>
+							        </span>
+							      </p>
+							    </header>
+							    <div class="content-featured">
+							      <a class="content-thumb" href="blog-detail.html" title="Permalink to: &quot;What Should Be Wise Food Choice For Your First Date?&quot;">
+							        <img src="images/blog/blog-img1.jpg" class="attachment-property-image" alt="">
+							      </a>
+							    </div>
+							    <div class="content-excerpt">
+							      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in…
+							      </p>
+							      <div><a href="blog-detail.html" class="read-more">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
+							      </div>
+							    </div>
+							  </div>
+							</article>
+
+							<article class="hentry format-link no-featured">
+							  <div class="content-wrap">
+							    <header class="content-header">
+							      <h2 class="content-title">
+							        <a href="blog-detail.html" title="Permanent link to: &quot;Premium Joomla Template – NooTheme&quot;">Premium Joomla Template – NooTheme</a>
+							      </h2>
+							      <span class="content-sub-title content-link">
+							        <a href="http://themeforest.net/" title="Shared link from post: &quot;Premium Joomla Template – NooTheme&quot;" target="_blank">
+							          <i class="fa fa-link nooicon-link"></i>
+							          http://themeforest.net/</a>
+							      </span>
+							    </header>
+							  </div>
+							</article>
+
+							<article class="hentry format-audio has-featured">
+						    <div class="content-featured">
+						      <div id="jplayer-audio-1" class="jp-jplayer jp-jplayer-audio"></div>
+						      <div class="jp-controls-container jp-audio">
+						        <div id="jplayer-interface-audio-1" class="jp-interface">
+						          <ul class="jp-controls">
+						            <li>
+						              <a href="#" class="jp-play" tabindex="1">
+						                <span>Play</span>
+						              </a>
+						            </li>
+						            <li>
+						              <a href="#" class="jp-pause" tabindex="1">
+						                <span>Pause</span>
+						              </a>
+						            </li>
+						            <li>
+						              <a href="#" class="jp-mute" tabindex="1">
+						                <span>Mute</span>
+						              </a>
+						            </li>
+						            <li>
+						              <a href="#" class="jp-unmute" tabindex="1">
+						                <span>UnMute</span>
+						              </a>
+						            </li>
+						          </ul>
+						          <div class="jp-progress-container">
+						            <div class="jp-progress">
+						              <div class="jp-seek-bar">
+						                <div class="jp-play-bar"></div>
+						              </div>
+						            </div>
+						            <div class="jp-volume-bar">
+						              <div class="jp-volume-bar-value"></div>
+						            </div>
+						          </div>
+						        </div>
+						      </div>
+						    </div>
+						    <div class="content-wrap">
+						      <header class="content-header">
+						        <h2 class="content-title">
+						          <a href="blog-detail.html" title="Permanent link to: &quot;Audio Posts Are Enabled, Too.&quot;">Audio Posts Are Enabled, Too.</a>
+						        </h2>
+						        <p class="content-meta">
+						          <i class="fa fa-file-audio-o nooicon-file-audio-o"></i>
+						          <span>
+						            Posted in
+						            <a href="#" title="View all posts in: &ldquo;Audio&rdquo;"> Audio</a>
+						          </span>
+						          <span>
+						            on
+						            <time class="entry-date" datetime="2014-07-21T10:06:40+00:00">
+						              July 21, 2014
+						            </time>
+						          </span>
+						          <span>
+						            by
+						            <a href="#" title="Posts by admin" rel="author">admin</a>
+						          </span>
+						          <span><a href="#" title="Leave a comment on: &ldquo;Audio Posts Are Enabled, Too.&rdquo;" class="meta-comments"><i class="fa fa-comments nooicon-comments"></i>  Leave a Comment</a>
+						          </span>
+						      </header>
+						      <div class="content-excerpt">
+						        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in&#8230;
+						          <div><a href="blog-detail.html" class="read-more">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
+						          </div>
+						      </div>
+						    </div>
+						  </article>
+
+							<article class="hentry format-standard has-featured">
+							  <div class="content-wrap">
+							    <header class="content-header">
+							      <h2 class="content-title">
+							        <a href="blog-detail.html" title="Permanent link to: &quot;Hair Tricks You Never Heard About&quot;">Hair Tricks You Never Heard About</a>
+							      </h2>
+							      <p class="content-meta">
+							        <i class="fa fa-file-image-o nooicon-file-image-o"></i>
+							        <span>
+							          Posted in
+							          <a href="#" title="View all posts in: “Fashion”"> Fashion</a>
+							        </span>
+							        <span>
+							          on
+							          <time class="entry-date" datetime="2014-07-21T10:03:32+00:00">
+							            July 21, 2014
+							          </time>
+							        </span>
+							        <span>
+							          by
+							          <a href="#" title="Posts by admin" rel="author">admin</a>
+							        </span>
+							        <span><a href="#" title="Leave a comment on: “Hair Tricks You Never Heard About”" class="meta-comments"><i class="fa fa-comments nooicon-comments"></i>  Leave a Comment</a>
+							        </span>
+							      </p>
+							    </header>
+							    <div class="content-featured">
+							      <a class="content-thumb" href="blog-detail.html" title="Permalink to: &quot;Hair Tricks You Never Heard About&quot;">
+							        <img src="images/blog/blog-img1.jpg" class="attachment-property-image" alt="">
+							      </a>
+							    </div>
+							    <div class="content-excerpt">
+							      <p>Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris, sed placerat ipsum urna sed risus. In convallis tellus a mauris. Curabitur non elit ut libero tristique sodales. Mauris a lacus. Donec mattis semper leo. In hac habitasse platea dictumst. Vivamus facilisis diam at odio. Mauris dictum, nisi eget consequat elementum, lacus ligula molestie metus, non feugiat orci magna ac…
+							      </p>
+							      <div><a href="blog-detail.html" class="read-more">Read More <i class="fa fa-arrow-circle-o-right"></i></a>
+							      </div>
+							    </div>
+							  </div>
+							</article>
+
+							<article class="hentry format-video has-featured">
+							  <div class="content-wrap">
+							    <header class="content-header">
+							      <h2 class="content-title">
+							        <a href="blog-detail.html" title="Permanent link to: &quot;Video Posts Are Enabled, Too.&quot;">Video Posts Are Enabled, Too.</a>
+							      </h2>
+							      <p class="content-meta">
+							        <i class="fa fa-file-video-o nooicon-file-video-o"></i>
+							        <span>
+							          Posted in
+							          <a href="#" title="View all posts in: “Video”"> Video</a>
+							        </span>
+							        <span>
+							          on
+							          <time class="entry-date" datetime="2014-07-21T10:01:14+00:00">
+							            July 21, 2014
+							          </time>
+							        </span>
+							        <span>
+							          by
+							          <a href="#" title="Posts by admin" rel="author">admin</a>
+							        </span>
+							        <span><a href="#" title="Leave a comment on: “Video Posts Are Enabled, Too.”" class="meta-comments"><i class="fa fa-comments nooicon-comments"></i>  Leave a Comment</a>
+							        </span>
+							      </p>
+							    </header>
+							    <div class="content-featured">
+							      <div id="noo-video-container3223" class="noo-video-container 16-9-ratio">
+							        <div class="video-inner">
+							          <iframe src="//player.vimeo.com/video/93208319" width="500" height="281" allowfullscreen></iframe>
+							          <p><a href="http://vimeo.com/93208319">Nocturne</a> from <a href="http://vimeo.com/karicasady">Kari Casady</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+							        </div>
+							      </div>
+							    </div>
+							    <div class="content-excerpt">
+							    </div>
+							  </div>
+							</article>
+
+							<article class="hentry format-quote no-featured">
+							  <div class="content-wrap">
+							    <header class="content-header">
+							      <h2 class="content-title content-quote">
+							        <a href="blog-detail.html" title="Permanent link to: &quot;Quote Block&quot;">
+												Don't cry when the sun is gone, because the tears won't let you see the stars.</a>
+							      </h2>
+							      <cite class="content-sub-title content-cite"><i class="fa fa-quote-left nooicon-quote-left"></i> Violeta Parra</cite>
+							    </header>
+							  </div>
+							</article>
+
+              <div class="clearfix"></div>
+
+							<!-- START PAGINATION NAVIGATION -->
+              <nav class="pagination-nav">
+                <ul class="pagination list-center">
+                  <li><a class="prev page-numbers" href="#"><i class="fa fa-angle-left"></i></a></li>
+                  <li><span class="page-numbers current">1</span></li>
+                  <li><a class="page-numbers" href="#">2</a></li>
+                  <li><span class="page-dots"><i class="fa fa-ellipsis-h"></i></span></li>
+                  <li><a class="page-numbers" href="#">7</a></li>
+                  <li><a class="page-numbers" href="#">8</a></li>
+                  <li><a class="next page-numbers" href="#"><i class="fa fa-angle-right"></i></a></li>
+                </ul>
+              </nav>
+              <!-- END PAGINATION NAVIGATION -->
+						</div>
+				  	<!-- END MAIN CONTENT -->
+
+				  	<!-- START SIDEBAR -->
+				  	<div class="noo-sidebar noo-sidebar-right col-xs-12 col-md-4">
+							<div class="noo-sidebar-inner">
+								<!-- START SEARCH FIELD -->
+								<div class="block-sidebar search-field">
+								  <form method="GET" id="searchform" class="form-horizontal" role="form">
+								    <input type="search" id="s" name="s" class="form-control" value="" placeholder="Search">
+								  </form>
+								</div>
+								<!-- END SEARCH FIELD -->
+
+								<!-- START RECENT POSTS -->
+								<div class="block-sidebar recent-posts">
+								  <h4 class="title-block-sidebar">Recent Posts</h4>
+								  <ul>
+								    <li>
+								      <a href="blog-detail.html">News from Nintendo</a>
+								    </li>
+								    <li>
+								      <a href="blog-detail.html">Which Trend For This Fall-Winter?</a>
+								    </li>
+								    <li>
+								      <a href="blog-detail.html">5-Minute Drink Recipies For Your Summer</a>
+								    </li>
+								  </ul>
+								</div>
+								<!-- END RECENT POSTS -->
+
+								<!-- START RECENT COMMENTS -->
+								<div class="block-sidebar recent-comments">
+								  <h4 class="title-block-sidebar">Recent Comments</h4>
+								  <ul id="recentcomments">
+								    <li class="recentcomments">
+								      <span class="comment-author-link">admin</span>on <a href="#">Which Trend For This Fall-Winter?</a>
+								    </li>
+								    <li class="recentcomments">
+								      <span class="comment-author-link">admin</span>on <a href="#">Which Trend For This Fall-Winter?</a>
+								    </li>
+								    <li class="recentcomments">
+								      <span class="comment-author-link">admin</span>on <a href="#">Which Trend For This Fall-Winter?</a>
+								    </li>
+								  </ul>
+								</div>
+								<!-- END RECENT COMMENTS -->
+
+								<!-- START TAG CLOUD -->
+								<div class="block-sidebar tag-cloud">
+								  <h4 class="title-block-sidebar">Tags</h4>
+								  <div class="tagcloud"><a href="#" title="1 topic">Audio</a>
+								    <a href="#" class="tag-link" title="1 topic">Blog</a>
+								    <a href="#" class="tag-link" title="1 topic">Captions</a>
+								    <a href="#" class="tag-link" title="5 topics">Dining</a>
+								    <a href="#" class="tag-link" title="2 topics">Fashion</a>
+								    <a href="#" class="tag-link" title="1 topic">Gallery</a>
+								    <a href="#" class="tag-link" title="1 topic">Game</a>
+								    <a href="#" class="tag-link" title="1 topic">Quote</a>
+								    <a href="#" class="tag-link" title="2 topics">Video</a>
+								  </div>
+								</div>
+								<!-- END TAG CLOUD -->
+
+								<!-- START CALENDAR -->
+								<div class="block-sidebar calendar">
+								  <h4 class="title-block-sidebar">Calendar</h4>
+								  <div class="datepicker"></div>
+								</div>
+								<!-- END CALENDAR -->
+							</div>
+				  	</div>
+				  	<!-- END SIDEBAR -->
+				  </div>
+		  	</div>
+		  </div>
+		  <!-- END NOO MAINBODY -->
+		</div>
+		<!-- END NOO WRAPPER -->
+
+    <!-- START FOOTER -->
+    <footer class="footer">
+      <!-- START FOOTER NAVIGATION -->
+      <div class="footer-nav">
+        <div class="container">
+          <div class="row">
+            <!-- START FOOTER ABOUT US -->
+            <div class="col-xs-12 col-sm-6 col-md-3 footer-nav-col">
+              <div class="ft-about-us">
+                <h4 class="ft-col-title">RealEstate</h4>
+                <div class="text-block">
+                  <p>RealEstate brings wide range of choice, steadily updated property list and market trend for you to figure out your right decision.</p>
+                  <p>You are now at right place for your real estate research.</p>
+                </div>
+              </div>
+            </div>
+            <!-- END ABOUT US -->
+
+            <!-- START FOOTER FEATURED PROPERTIES -->
+            <div class="col-xs-12 col-sm-6 col-md-3 footer-nav-col">
+              <div class="ft-featured-properties">
+                <h4 class="ft-col-title">Featued Property</h4>
+                <div class="featured-property">
+                  <ul>
+                    <li>
+                      <div class="featured-image">
+                        <a href="property-details.html"><img src="images/property/property1.jpg" alt=""></a>
+                      </div>
+                      <div class="featured-decs">
+                        <span class="featured-status"><a href="#"></a></span>
+                        <h4 class="featured-title"><a href="property-details.html" title="Fresno, CA93722">Fresno, CA93722</a></h4>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="featured-image">
+                        <a href="property-details.html"><img src="images/property/property1.jpg" alt=""></a>
+                      </div>
+                      <div class="featured-decs">
+                        <span class="featured-status"><a href="#">For Rent</a></span>
+                        <h4 class="featured-title"><a href="property-details.html" title="AVA High Line">AVA High Line</a></h4>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- END FOOTER FEATURED PROPERTIES -->
+
+            <!-- START FOOTER USEFUL LINKS -->
+            <div class="col-xs-12 col-sm-6 col-md-3 footer-nav-col">
+              <div class="ft-useful-links">
+                <h4 class="ft-col-title">Useful links</h4>
+                <nav class="useful-links-menu" role="navigation">
+                  <ul>
+                    <li class="menu-item"><a href="#">Terms of Use</a></li>
+                    <li class="menu-item"><a href="#">Privacy Policy</a></li>
+                    <li class="menu-item"><a href="#">Contact Support</a></li>
+                    <li class="menu-item"><a href="#">Knowledgebase</a></li>
+                    <li class="menu-item"><a href="#">Careers</a></li>
+                    <li class="menu-item"><a href="#">FAQs</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <!-- END FOOTERUSEFUL LINKS  -->
+
+            <!-- START FOOTER CONTACT INFO -->
+            <div class="col-xs-12 col-sm-6 col-md-3 footer-nav-col">
+              <div class="ft-contact-info">
+                <h4 class="ft-col-title">Contact info</h4>
+                  <ul class="detail-contact-info">
+                    <li><i class="fa fa-map-marker"></i>&nbsp;376 Baker Street, New York</li>
+                    <li><i class="fa fa-phone"></i>&nbsp;(+01)-486-2857</li>
+                    <li><i class="fa fa-envelope-o"></i>&nbsp;<a href="mailto:raheelmalik068@gmail.com">info@realestate.com</a></li>
+                  </ul>
+              </div>
+            </div>
+            <!-- END FOOTER CONTACT INFO -->
+          </div>
+        </div>
+      </div>
+      <!-- END FOOTER NAVIGATION -->
+
+      <!-- START COPYRIGHT -->
+      <div class="copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 text-block">
+              &copy; 2014 RealEstate. All Rights Reserved.
+              <br />
+              <span>Designed by <a title="Visit Nootheme.com!" href="http://www.nootheme.com/" target="_blank">NooTheme.com</a>.</span>
+              <br>
+            </div>
+            <div class="col-xs-12 col-sm-6 logo-block">
+              <div class="logo-image">
+                <a href="#/"><img src="images/logo/logo-footer.png" alt="RealEstate"></a>
+              </div>
+            </div>
+          </div>          
+        </div>
+       
+        <!-- START BACK TO TOP -->
+        <div id="back-to-top" class="back-to-top">
+          <i class="fa fa-angle-up"></i>
+        </div>
+        <!-- END BACK TO TOP -->
+      </div>
+      <!-- END COPYRIGHT -->
+    </footer>
+    <!-- END FOOTER -->
+  </div>
+  <!-- END SITE -->
+
+  <!-- JQUERY PLUGIN -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+  <script type="text/javascript" src="js/SmoothScroll.js"></script>
+  <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+  <script type="text/javascript" src="js/jplayer-2.5.0.min.js"></script>
+
+  <!-- THEME SCRIPT -->
+  <script type="text/javascript" src="js/script.js"></script>
+		
+</body>
+
+</html>

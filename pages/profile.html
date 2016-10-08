@@ -1,0 +1,90 @@
+
+<!-- START NOO MAINBODY -->
+<div class="container noo-mainbody" ng-init="init()">
+    <div class="noo-mainbody-inner">
+        <div class="row clearfix">
+            <!-- START SIDEBAR -->
+            <div class="noo-sidebar noo-sidebar-left col-xs-12 col-md-4">
+                <div class="noo-sidebar-inner">
+                    <div class="user-sidebar-menu dashboard-sidebar">
+<!--                        <div class="user-avatar content-thumb">
+                            <img src="images/agent/agent1.jpg" alt="">
+                        </div>-->
+                        <div class="user-menu-links">
+                            <a href="#/profile" class="user-link active"><i class="fa fa-user"></i>My Profile</a>
+                            <a href="#/properties" class="user-link "><i class="fa fa-home"></i>My Properties</a>
+                        </div>
+                        <div class="user-menu-links user-menu-logout">
+                            <a href="#/logout" class="user-link" title="Logout"><i class="fa fa-sign-out"></i>Log Out</a>
+                        </div>
+                        <div class="user-menu-submit">
+                            <a href="#/property/add" class="btn btn-secondary">SUBMIT PROPERTY</a>
+                        </div>
+                    </div>						
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+
+            <!-- START MAIN CONTENT -->
+            <div class="noo-content col-xs-12 col-md-8 left-sidebar">
+                <div class="submit-header">
+                    <h1 class="page-title">My Profile</h1>
+                </div>
+                <div class="submit-content">
+                    <form name="profileForm" id="profileform" ng-submit="updateProfileForm(profileForm.$valid)" role="form" autocomplete="off">
+                        <div class="noo-control-group">
+                            <div class="group-title">{{welcomeMessage}}</div>
+                            <div class="group-container row">
+                                <div class="form-message">
+                                    <div class="alert alert-success fade in" ng-if="message">
+                                        <span ng-if="message">
+                                            {{ message | i18next }}
+                                        </span>
+                                    </div>
+                                    <div class="alert alert-danger fade in" ng-if="systemErrors">
+                                        <span ng-if="systemErrors">
+                                            {{ systemErrors | i18next }}
+                                        </span>									            	
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group s-profile-title" ng-class="{ 'has-error' : profileForm.first_name.$invalid && !profileForm.first_name.$pristine }">
+                                        <label for="title">First Name&nbsp;<span style="color: red;">&#42;</span></label>
+                                        <input type="text" id="first_name" class="form-control" ng-model="userData.first_name" name="first_name" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group s-profile-title" ng-class="{ 'has-error' : profileForm.last_name.$invalid && !profileForm.last_name.$pristine }">
+                                        <label for="title">Last Name&nbsp;<span style="color: red;">&#42;</span></label>
+                                        <input type="text" id="last_name" class="form-control" ng-model="userData.last_name" name="last_name" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group s-profile-email" ng-class="{ 'has-error' : profileForm.email.$invalid && !profileForm.email.$pristine }">
+                                        <label for="email">Email&nbsp;</label>
+                                        <p>{{userData.email}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group s-profile-phone" ng-class="{ 'has-error' : profileForm.phone_no.$invalid && !profileForm.phone_no.$pristine }">
+                                        <label for="phone">Phone no.<span style="color: red;">&#42;</span></label>
+                                        <input type="text" id="phone_no" class="form-control" ng-model="userData.phone_no" name="phone_no" required="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group-container row">
+                            <div class="col-md-12">
+                                <div class="noo-submit">
+                                    <input type="submit" class="btn btn-primary btn-lg" id="profile_submit" value="Update">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>												
+            </div>	  		
+            <!-- END MAIN CONTENT -->
+        </div>
+    </div> 
+</div>
+<!-- END NOO MAINBODY -->

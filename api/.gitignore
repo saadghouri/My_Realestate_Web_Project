@@ -1,0 +1,9 @@
+application/config/constants.php
+application/config/database.php
+application/config/config.php
+uploads/
+noticePic/
+profilePic/
+alertPic/
+orgImages/
+.htaccess

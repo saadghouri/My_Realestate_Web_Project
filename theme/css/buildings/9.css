@@ -1,0 +1,40 @@
+.main_logo{
+  height: 180px;
+  background: url("../../../app_images/6.png") no-repeat center center !important;
+}
+.nav_background_logo{
+  float: right;
+  background: url("../../../app_images/6_top.png") no-repeat center center !important;
+}
+.theme-btn, .theme-btn:focus{
+	background-color: #016DA9 !important;
+  	border-color: #0188D3 !important;
+}
+.theme-btn:hover, .theme-btn:active {
+  background-color: #0289D5 !important;
+  border-color: #00A4FF !important;
+}
+.no-skin .navbar .navbar-toggle {
+  background-color: #007EC4 !important;
+}
+.no-skin .navbar .navbar-toggle:hover {
+  background-color: #4686C0 !important;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.ace-nav .nav-user-photo {
+  border-color: #007EC4 !important;
+}
+.act-btn-trigger {
+  background: #007EC4 !important;
+}
+.dark-sky-blue {
+  color: #007EC4 !important;
+}
+.back_div {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: "Raleway";
+  font-size: 16px;
+  background: url('../../../assets/img/bg/9.jpg') center top fixed !important;
+  color: white;
+}

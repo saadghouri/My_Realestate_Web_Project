@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Building Invitation - Appartment App</title>
+
+		<meta name="description" content="User login page" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/font-awesome.css" />
+		<link rel="stylesheet" href="assets/css/bootstrap-timepicker.css" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/ace.css" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="assets/css/ace-rtl.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.css" />
+		<![endif]-->
+
+		<script src="assets/js/ace-extra.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.js"></script>
+		<![endif]-->
+		<script src="assets/js/angular.js" type="text/javascript"></script>
+		<script src="assets/js/common.js" type="text/javascript"></script>
+
+		<script src="assets/js/angularControllers/get_register.js" type="text/javascript"></script>
+
+	</head>
+
+	<body class="login-layout blur-login" ng-app=""  ng-controller="registerStep1Controller" ng-init="init()">
+		<div class="main-container">
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="login-container">
+							<div class="center">
+								<h1>
+									<img src="app_images/stc_72.png">
+								</h1>
+							</div>
+
+							<div class="space-6"></div>
+
+							<div class="position-relative">
+								<div id="login-box" class="login-box visible widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header blue lighter bigger">
+												<i class="ace-icon fa fa-coffee green"></i>
+												<span>Building Invitation</span>
+											</h4>
+
+											<div class="space-6"></div>
+
+											<div class="alert alert-warning fade in">
+									            	<span>
+									            		Your're here because you've been invited to join {{ building_name }}. Please choose what email address you would like to join with.
+									            	</span>
+									          	</div>
+												<div class="alert alert-success fade in" ng-show="message">
+									            	<span ng-if="message">
+									            		{{ message }}
+									            	</span>
+									          	</div>
+									          	<div class="alert alert-danger fade in" ng-show="systemErrors">
+									          		<span ng-if="systemErrors">
+									            		{{ systemErrors }}
+									            	</span>									            	
+									          	</div>
+
+											<form  ng-show="!invalidInvitation" name="st1Form" ng-submit="verify_invitation(st1Form.$valid)" autocomplete="off" novalidate>
+
+									          	<div class="form-group" ng-class="{ 'has-error' : st1Form.email.$invalid && !st1Form.email.$pristine }">
+										            <div class="block clearfix">
+										            	<span>Email Address</span><span class="red">*</span>
+										            	<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control" name="email" ng-disabled="isDisabled" placeholder="Enter email address" ng-model="invData.email" required>
+										            		<i class="ace-icon fa fa-user"></i>
+														</span>
+										            </div>
+										              <p ng-show="st1Form.email.$invalid && !st1Form.email.$pristine" class="help-block">Please enter valid email</p>
+										         </div>
+
+										         <div class="form-group" ng-class="{ 'has-error' : st1Form.nemail.$invalid && !st1Form.nemail.$pristine }">
+										            <div class="block clearfix">
+										            	<span>Re-type Email Address</span><span class="red">*</span>
+										            	<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control" name="nemail" ng-disabled="isDisabled" placeholder="Enter email" valid-same-e ng-model="invData.nemail" required>
+										            		<i class="ace-icon fa fa-lock"></i>
+														</span>										                
+										            </div>
+										              <p ng-show="st1Form.nemail.$invalid && !st1Form.nemail.$pristine" class="help-block">Please enter valid email</p>
+										              <p ng-show="st1Form.nemail.$error.noMatch && st1Form.nemail.$dirty"  class="help-block">Email do not match.</p>
+										         </div>
+
+												<fieldset>
+
+													<div class="space"></div>
+
+													<div class="clearfix">
+														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-disabled="st1Form.$invalid">
+															<i class="ace-icon fa fa-key"></i>
+															<span class="bigger-110">Next</span>
+														</button>
+													</div>
+
+													<div class="space-4"></div>
+												</fieldset>
+											</form>
+										</div><!-- /.widget-main -->
+
+										<div class="toolbar clearfix">
+											
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.login-box -->
+
+								<div id="signup-box" class="signup-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header green lighter bigger">
+												<i class="ace-icon fa fa-users blue"></i>
+												New User Registration
+											</h4>
+
+											<div class="space-6"></div>
+
+											<div class="alert alert-success fade in" ng-show="message2">
+									            	<span ng-if="message2">
+									            		{{ message2 }}
+									            	</span>
+									          	</div>
+									          	<div class="alert alert-danger fade in" ng-show="systemErrors2">
+									          		<span ng-if="systemErrors2">
+									            		{{ systemErrors2 }}
+									            	</span>									            	
+									          	</div>
+
+											<div class="space-6"></div>
+
+											<p> Email Address: <br/> {{ invData.nemail }}</p>
+
+											<div ng-show="code_required" class="alert alert-warning">You will have received an email from inRENTory. In it you will find a verification code. If you don't see the email, check your spam/junk mail.</div>
+
+											<form name="joinBForm" ng-submit="join_building(joinBForm.$valid)">
+												<fieldset>
+													<div ng-show="code_required" ng-class="{ 'has-error' : joinBForm.vcode.$invalid && !joinBForm.vcode.$pristine }">
+														<label class="block clearfix">
+															<span>Verification Code</span><span class="red">*</span>
+															<span class="block input-icon input-icon-right">
+																<input type="text" name="vcode" class="form-control" placeholder="Verification Code" ng-model="invData.code" ng-required="code_required" />
+																<i class="ace-icon fa fa-envelope"></i>
+															</span>
+															<p ng-show="joinBForm.vcode.$invalid && !joinBForm.vcode.$pristine" class="help-block">Enter verification code.</p>
+														</label>
+													</div>
+
+													<div ng-class="{ 'has-error' : joinBForm.pass.$invalid && !joinBForm.pass.$pristine }">
+														<label class="block clearfix">
+														<span>Password</span><span class="red">*</span>
+															<span class="block input-icon input-icon-right">
+																<input type="password" name="pass" ng-model="invData.pass"  class="form-control" placeholder="Password" required/>
+																<i class="ace-icon fa fa-lock"></i>
+															</span>
+															<p ng-show="joinBForm.pass.$invalid && !joinBForm.pass.$pristine" class="help-block">Enter password.</p>
+														</label>
+													</div>
+
+													<div ng-class="{ 'has-error' : joinBForm.cpass.$invalid && !joinBForm.cpass.$pristine }">
+														<label class="block clearfix">
+														<span>Confirm Password</span><span class="red">*</span>
+															<span class="block input-icon input-icon-right">
+																<input type="password" name="cpass" ng-model="invData.cpass"  class="form-control" placeholder="Repeat password" required/>
+																<i class="ace-icon fa fa-retweet"></i>
+															</span>
+															<p ng-show="joinBForm.cpass.$invalid && !joinBForm.cpass.$pristine" class="help-block">Repeat password correctly.</p>
+														</label>
+													</div>
+												</fieldset>
+												<div class="hr hr-16 hr-dotted"></div>
+												<fieldset>
+													<div style="text-align: center;">
+														<span class="label label-xlg label-primary arrowed arrowed-right">Profile Info</span>
+													</div>
+													<br />
+													<div ng-class="{ 'has-error' : joinBForm.first_name.$invalid && !joinBForm.first_name.$pristine }">
+														<label class="block clearfix">
+															<span>First Name</span><span class="red">*</span>
+															<span class="block input-icon input-icon-right">
+																<input type="text" name="first_name" ng-model="invData.first_name" class="form-control" placeholder="First Name" required/>
+																<i class="ace-icon fa fa-envelope"></i>
+															</span>
+															<p ng-show="joinBForm.first_name.$invalid && !joinBForm.first_name.$pristine" class="help-block">Enter first name.</p>
+														</label>
+													</div>
+
+
+													<div ng-class="{ 'has-error' : joinBForm.last_name.$invalid && !joinBForm.last_name.$pristine }">
+														<label class="block clearfix">
+															<span>Last Name</span><span class="red">*</span>
+															<span class="block input-icon input-icon-right">
+																<input type="text" name="last_name" ng-model="invData.last_name"  class="form-control" placeholder="Last Name" required/>
+																<i class="ace-icon fa fa-envelope"></i>
+															</span>
+														</label>
+														<p ng-show="joinBForm.last_name.$invalid && !joinBForm.last_name.$pristine" class="help-block">Enter Last name.</p>
+													</div>
+
+													<div ng-class="{ 'has-error' : joinBForm.gender.$invalid && !joinBForm.gender.$pristine }">
+														<div class="form-group">
+															<span>Gender</span><span class="red">*</span>
+															<span class="block input-icon input-icon-right">
+																<select class="form-control input-medium" name="gender" ng-model="invData.gender" required>
+																	<option value="">Select</option>
+											                          <option value="1">Female</option>
+											                          <option value="0">Male</option>
+											                    </select>
+															</span>
+														</div>
+													</div>
+													<div ng-class="{ 'has-error' : joinBForm.birthday.$invalid && !joinBForm.birthday.$pristine }">
+														<label class="block clearfix">
+															<span>Date of Birth</span><span class="red">*</span>
+															<span class="block input-icon input-icon-right">
+																<input type="date" name="birthday" id="birthday" ng-model="invData.birthday"  class="form-control" placeholder="Birthday" required />
+																<i class="ace-icon fa fa-envelope"></i>
+															</span>
+														</label>
+														<p ng-show="joinBForm.birthday.$invalid && !joinBForm.birthday.$pristine" class="help-block">Enter valid birthday date.</p>
+													</div>
+
+													<div ng-class="{ 'has-error' : joinBForm.phone_no.$invalid && !joinBForm.phone_no.$pristine }">
+														<label class="block clearfix">
+															<span>Phone Number</span><span class="red">*</span>
+															<span class="block input-icon input-icon-right">
+																<input type="text" name="phone_no" ng-model="invData.phone_no"  class="form-control" placeholder="Phone Number" required/>
+																<i class="ace-icon fa fa-envelope"></i>
+															</span>
+															<p ng-show="joinBForm.phone_no.$invalid && !joinBForm.phone_no.$pristine" class="help-block">Enter phone number.</p>
+														</label>
+													</div>
+												</fieldset>
+
+												<div class="hr hr-16 hr-dotted"></div>
+												<fieldset>
+													<div style="text-align: center;">
+														<span class="label label-xlg label-primary arrowed arrowed-right">Building Reservation Details</span>
+													</div>
+													<br/>
+													<p> Building Name: <br/> {{ building_name }}</p>
+
+													<div ng-show="!isManager" ng-class="{ 'has-error' : joinBForm.room_no.$invalid && !joinBForm.room_no.$pristine }">
+														<label class="block clearfix">
+															<span>Room/Apartment Number</span><span class="red">*</span>
+															<span class="block input-icon input-icon-right">
+																<input type="text" name="room_no" ng-model="invData.room_no"  class="form-control" placeholder="Room Number" ng-required="!isManager"/>
+																<i class="ace-icon fa fa-envelope"></i>
+															</span>
+															<p ng-show="joinBForm.room_no.$invalid && !joinBForm.room_no.$pristine" class="help-block">Enter room/apartment number.</p>
+														</label>
+													</div>
+
+													<div ng-show="!isManager" ng-class="{ 'has-error' : joinBForm.floor_no.$invalid && !joinBForm.floor_no.$pristine }">
+														<label class="block clearfix">
+															<span>Floor Number</span><span class="red">*</span>
+															<span class="block input-icon input-icon-right">
+																<input type="text" name="floor_no" ng-model="invData.floor_no"  class="form-control" placeholder="Floor Number"  ng-required="!isManager"/>
+																<i class="ace-icon fa fa-envelope"></i>
+															</span>
+															<p ng-show="joinBForm.floor_no.$invalid && !joinBForm.floor_no.$pristine" class="help-block">Enter floor number.</p>
+														</label>
+													</div>
+
+													<div class="form-group" ng-class="{ 'has-error' : joinBForm.tos_pp.$invalid && !joinBForm.tos_pp.$pristine }">
+											         	<div class="block clearfix">
+											         		<label>
+																	<input type="checkbox" name="tos_pp" class="ace" ng-model="invData.tos_pp">
+																	<span class="lbl"> I agree to the <a data-toggle="modal" data-target="#tosModal">Terms of Service</a> and <a data-toggle="modal" data-target="#ppModal">Privacy Policy</a>.</span>
+															</label>
+											         	</div>
+											         	<span class="help-block" style="color: #d16e6c;" ng-show="tos_pp_msg">You must agree with the Terms of Service and Privacy Policy.</span>
+											         	<p ng-show="joinBForm.tos_pp.$invalid && !joinBForm.tos_pp.$pristine" class="help-block">You must agree with the Terms of Service and Privacy Policy.</p>
+											         </div>
+
+													<div class="space-24"></div>
+
+													<div class="clearfix">
+														<button type="submit" class="width-65 pull-right btn btn-sm btn-success" ng-disabled="joinBForm.$invalid" >
+															<span class="bigger-110">Join Building</span>
+
+															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.signup-box -->
+							</div><!-- /.position-relative -->
+						</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+
+				<div class="modal fade" id="tosModal" data-backdrop="static" data-keyboard="false" tabindex="-1">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						    	<div class="modal-header">
+									<h4 class="modal-title">Terms of Service</h4>
+								</div>
+						      <div class="modal-body">
+						        <p ng-include="'terms_of_service.html'"></p>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close">OK</button>
+						      </div>
+						    </div><!-- /.modal-content -->
+						  </div><!-- /.modal-dialog -->
+						</div><!-- /.modal -->
+
+					<div class="modal fade" id="ppModal" data-backdrop="static" data-keyboard="false" tabindex="-1">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						    	<div class="modal-header">
+									<h4 class="modal-title">Privacy Policy</h4>
+								</div>
+						      <div class="modal-body">
+						        <p ng-include="'privacy_policy.html'"></p>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close">OK</button>
+						      </div>
+						    </div><!-- /.modal-content -->
+						  </div><!-- /.modal-dialog -->
+						</div><!-- /.modal -->
+
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery1x.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			jQuery(function($) {
+			 $(document).on('click', '.toolbar a[data-target]', function(e) {
+				e.preventDefault();
+				var target = $(this).data('target');
+				$('.widget-box.visible').removeClass('visible');//hide others
+				$(target).addClass('visible');//show target
+			 });
+			});
+		</script>
+		<script src="assets/js/bootstrap.js"></script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+body {
+  font-size: 19px;
+}
+.btn{
+	font-size: 20px;
+}
+.nav-list > li > a{
+	font-size: 19px;
+}
+.nav-list a .badge, .nav-list a .label{
+	font-size: 16px;
+}
+.bottom_bar{
+	height: 48px;
+}
+label{
+	font-size: 19px;
+}
+.form-control{
+	font-size: 19px;
+}
+.label-xlg{
+	padding: 0.1em 0.7em 0.4em;
+  	font-size: 19px;
+}
+.dropdown-menu > li > a{
+	font-size: 19px !important;
+}
+.cd-nav-cust li a {
+  font-size: 16px;
+}
+.infobox .infobox-content {
+  font-size: 19px !important;
+  line-height: 0.8;
+}

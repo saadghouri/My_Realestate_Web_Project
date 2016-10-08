@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Work</title>
+
+		<meta name="description" content="Static &amp; Dynamic Tables" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/font-awesome.css" />
+		<link rel="stylesheet" href="assets/extra/datepicker3.css" />
+		<link rel="stylesheet" href="assets/css/bootstrap-timepicker.css" />
+		
+		<!-- page specific plugin styles -->
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.css" class="ace-main-stylesheet" />
+		<![endif]-->
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="assets/js/ace-extra.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.js"></script>
+		<![endif]-->
+		<script src="assets/js/angular.js" type="text/javascript"></script>
+		<script src="assets/js/common.js" type="text/javascript"></script>
+  		<script src="assets/js/angularControllers/workOrder.js" type="text/javascript"></script>
+  		
+	</head>
+
+	<body class="no-skin" ng-app="" ng-controller="workOrderController" data-ng-init="init()">
+		<!-- #section:basics/navbar.layout -->
+		<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="navbar-container" id="navbar-container">
+				<!-- /section:basics/sidebar.mobile.toggle -->
+				<div class="navbar-header nav_background_logo">
+					<!-- #section:basics/navbar.layout.brand -->
+
+					<button type="button" class="navbar-toggle menu-toggler pull-left navbar-toggle2" id="menu-toggler" onclick="window.history.back()">
+						<i class="ace-icon fa fa-arrow-left" style="color: white"></i>
+					</button>
+
+
+
+					<!-- #section:basics/sidebar.mobile.toggle -->
+					<button type="button" class="navbar-toggle menu-toggler pull-right" id="menu-toggler" data-target="#sidebar">
+						<span class="sr-only">Toggle sidebar</span>
+
+						<span class="icon-bar"></span>
+
+						<span class="icon-bar"></span>
+
+						<span class="icon-bar"></span>
+					</button>
+					<!-- #section:basics/navbar.toggle -->
+
+					<!-- /section:basics/navbar.toggle -->
+				</div>
+				<!-- /section:basics/navbar.dropdown -->
+			</div><!-- /.navbar-container -->
+		</div>
+
+		<!-- /section:basics/navbar.layout -->
+		<div class="main-container" id="main-container" ng-app="workOrderApp">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+
+			<!-- #section:basics/sidebar -->
+			<div id="sidebar" class="sidebar responsive">
+				<script type="text/javascript">
+					try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+				</script>
+				<ul class="nav nav-list" ng-include="'menu.html'">
+				</ul>
+				<!-- #section:basics/sidebar.layout.minimize -->
+				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+					<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+				</div>
+				<!-- /section:basics/sidebar.layout.minimize -->
+				<script type="text/javascript">
+					try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+				</script>
+			</div>
+
+			<!-- /section:basics/sidebar -->
+			<div class="main-content">
+				<div class="main-content-inner">
+
+					<!-- /section:basics/content.breadcrumbs -->
+					<div class="page-content">
+						<!-- /section:settings.box -->
+						<div class="page-header">
+							<h1>
+								
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="alert alert-success fade in" ng-show="message">
+						            {{ message }}
+						        </div>
+						        <div class="alert alert-danger fade in" ng-show="systemErrors">
+						            {{ systemErrors }}
+						        </div>
+								<!-- PAGE CONTENT BEGINS -->
+								<form class="form-horizontal" role="form" name="woForm" ng-submit="save_workOrder(woForm.$valid)">
+									<span>Please fill in the following information then submit:</span>
+									<!-- #section:elements.form -->
+									<div class="form-group" ng-class="{ 'has-error' : woForm.building.$invalid && !woForm.building.$pristine }">
+										<label class="control-label col-xs-12 col-sm-3 no-padding-right" >Which Building</label>
+										<div class="col-xs-12 col-sm-9">
+											<div class="clearfix">
+												<select class="form-control input-medium" name="building" ng-model="workData.building" ng-options="value.name for value in buildings" ng-change="loadAssignees()" required>
+													<option value="">Select Building</option>
+												</select>
+											</div>
+											<p ng-show="woForm.building.$invalid && !woForm.building.$pristine" class="help-block">Select at least one building.</p>
+										</div>
+									</div>
+
+									<div class="form-group" ng-class="{ 'has-error' : woForm.cat.$invalid && !woForm.cat.$pristine }">
+										<label class="control-label col-xs-12 col-sm-3 no-padding-right" >Category</label>
+										<div class="col-xs-12 col-sm-9">
+											<div class="clearfix">
+												<select class="form-control input-medium" ng-model="workData.cat" name="cat" ng-options="value.name for value in mcategories" ng-change="update_subCat()" required>
+													<option value="">Select Category</option>
+												</select>
+											</div>
+											<p ng-show="woForm.cat.$invalid && !woForm.cat.$pristine" class="help-block">Select at least one category.</p>
+										</div>
+									</div>
+
+									<div class="form-group" ng-class="{ 'has-error' : woForm.subcat.$invalid && !woForm.subcat.$pristine }">
+										<label class="control-label col-xs-12 col-sm-3 no-padding-right" >Sub-Category</label>
+										<div class="col-xs-12 col-sm-9">
+											<div class="clearfix">
+												<select class="form-control input-medium" name="subcat" ng-model="workData.subcat" ng-options="subcat.name for subcat in subcats" required>
+								                    <option value="">Select Sub Category</option>
+								                </select>
+											</div>
+											<p ng-show="woForm.subcat.$invalid && !woForm.subcat.$pristine" class="help-block">Select at least one subcategory.</p>
+										</div>
+									</div>
+
+									<div class="form-group" ng-class="{ 'has-error' : woForm.issue_location.$invalid && !woForm.issue_location.$pristine }">
+										<label class="control-label col-xs-12 col-sm-3 no-padding-right" >Where is the issue location?</label>
+										<div class="col-xs-12 col-sm-9">
+											<div class="clearfix">
+												<select class="form-control input-medium" name="issue_location" ng-options="iloc.name for iloc in iLocations" ng-change="update_iLoc()" ng-model="workData.issue_location" required>
+								                    <option value="">Select location</option>
+								                </select>
+											</div>
+											<p ng-show="woForm.issue_location.$invalid && !woForm.issue_location.$pristine" class="help-block">Select issue location.</p>
+										</div>
+									</div>
+
+									<div class="form-group" ng-show="issueLocationFlag" ng-class="{ 'has-error' : woForm.iLoc_data.$invalid && !woForm.iLoc_data.$pristine }">
+										<label class="control-label col-xs-12 col-sm-3 no-padding-right" >{{ issue_location }}</label>
+										<div class="col-sm-9">
+											<input class="col-xs-4 col-sm-5"  style="max-width: 100px" type="text" name="iLoc_data" ng-model="workData.iLoc_data" placeholder="Add room/floor" ng-required="issueLocationFlag" />
+											<p ng-show="woForm.iLoc_data.$invalid && !woForm.iLoc_data.$pristine" class="help-block">Enter valid data.</p>
+										</div>
+									</div>
+
+									<div class="form-group" ng-show="presenceFlag">
+										<label class="control-label col-xs-12 col-sm-3 no-padding-right" >Can someone come to fix the issue while your're not there?</label>
+										<div class="col-xs-12 col-sm-9">
+											<div class="clearfix">
+												<select class="form-control input-medium" name="presence" ng-change="update_form()" ng-model="workData.presence"  ng-required="presenceFlag">
+						                          <option value="0">No</option>
+						                          <option value="1">Yes</option>
+						                        </select>
+											</div>
+											<p ng-show="woForm.presence.$invalid && !woForm.presence.$pristine" class="help-block">Select at least one category.</p>
+										</div>
+									</div>
+
+									<div ng-show="isHidden" class="alert alert-warning fade in">
+										Please select 2 dates and time windows where you will be home for someone to come by and fix the issue.
+									</div>
+
+									<div class="dates" ng-show="isHidden">
+										<div>
+											<div class="form-group" ng-class="{ 'has-error' : woForm.date1.$invalid && !woForm.date1.$pristine }">
+												<label class="control-label col-xs-12 col-sm-3 no-padding-right" >Date 1</label>
+												<div class="col-xs-12 col-sm-9">
+													<div class="input-group">
+														<input class="form-control" id="date1" name="date1" type="date" ng-model="workData.date1" ng-required='isHidden' />
+														<span class="input-group-addon">
+															<i class="fa fa-calendar bigger-110"></i>
+														</span>
+													</div>
+													<p ng-show="woForm.date1.$invalid && !woForm.date1.$pristine" class="help-block">Select valid date.</p>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-xs-12 col-sm-3 no-padding-right" ></label>
+												<div class="col-xs-12 col-sm-9">
+													<div class="input-group">
+															<input id="timepicker11" type="text" name="time11" class="form-control" ng-model="workData.time1_from" ng-required='isHidden' value="9:00 AM" />
+															<span class="input-group-addon">
+																<i class="fa fa-clock-o bigger-110"></i>
+															</span>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-xs-12 col-sm-3 no-padding-right" ></label>
+												<div class="col-xs-12 col-sm-9">
+													<div class="input-group">
+															<input id="timepicker12" type="text" name="time12" class="form-control" ng-model="workData.time1_to" ng-required='isHidden' value="5:00 PM" />
+															<span class="input-group-addon">
+																<i class="fa fa-clock-o bigger-110"></i>
+															</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="date2">
+											<div class="form-group" ng-class="{ 'has-error' : woForm.date2.$invalid && !woForm.date2.$pristine }">
+												<label class="control-label col-xs-12 col-sm-3 no-padding-right" >Date 2</label>
+												<div class="col-xs-12 col-sm-9">
+													<div class="input-group">
+														<input class="form-control" id="date2" name="date2" type="date" ng-model="workData.date2" ng-required='isHidden' />
+														<span class="input-group-addon">
+															<i class="fa fa-calendar bigger-110"></i>
+														</span>
+													</div>
+													<p ng-show="woForm.date2.$invalid && !woForm.date2.$pristine" class="help-block">Select valid date.</p>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-xs-12 col-sm-3 no-padding-right" ></label>
+												<div class="col-xs-12 col-sm-9">
+													<div class="input-group">
+															<input id="timepicker21" type="text" name="time21" class="form-control" ng-model="workData.time2_from" ng-required='isHidden' value="9:00 AM" />
+															<span class="input-group-addon">
+																<i class="fa fa-clock-o bigger-110"></i>
+															</span>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-xs-12 col-sm-3 no-padding-right" ></label>
+												<div class="col-xs-12 col-sm-9">
+													<div class="input-group">
+															<input id="timepicker22" type="text" name="22" class="form-control" ng-model="workData.time2_to" ng-required='isHidden' value="5:00 PM" />
+															<span class="input-group-addon">
+																<i class="fa fa-clock-o bigger-110"></i>
+															</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group" ng-show="secureFlag" ng-class="{ 'has-error' : woForm.priority.$invalid && !woForm.priority.$pristine }">
+										<label class="control-label col-xs-12 col-sm-3 no-padding-right" >Set Priority</label>
+										<div class="col-xs-12 col-sm-9">
+											<div class="clearfix">
+												<select class="form-control input-medium"  name="priority" ng-options="priority.id as priority.name for priority in priorities" ng-model="workData.priority" ng-required="secureFlag">
+								                    <option value="">Select Priority</option>
+								                </select>
+											</div>
+											<p ng-show="woForm.priority.$invalid && !woForm.priority.$pristine" class="help-block">Select at least one priority.</p>
+										</div>
+									</div>
+
+									<div class="form-group" ng-show="secureFlag" ng-class="{ 'has-error' : woForm.assignee.$invalid && !woForm.assignee.$pristine }">
+										<label class="control-label col-xs-12 col-sm-3 no-padding-right" >Set Assignee</label>
+										<div class="col-xs-12 col-sm-9">
+											<div class="clearfix">
+												<select class="form-control input-medium" id="assignee" name="assignee" ng-options="value.id as value.name for value in assignees" ng-model="workData.assignee" ng-required="secureFlag">
+								                    <option value="">Select Assignee</option>
+								                  </select>
+											</div>
+											<p ng-show="woForm.assignee.$invalid && !woForm.assignee.$pristine" class="help-block">Select at least one assignee.</p>
+										</div>
+									</div>
+
+									<div class="form-group" ng-class="{ 'has-error' : woForm.desc.$invalid && !woForm.desc.$pristine }">
+										<label class="control-label col-xs-12 col-sm-3 no-padding-right" >Description</label>
+										<div class="col-xs-12 col-sm-9">
+											<textarea class="form-control" name="desc" rows="6" id="form-field-8" placeholder="work order description..." ng-model="workData.description" required></textarea>
+											<p ng-show="woForm.desc.$invalid && !woForm.desc.$pristine" class="help-block">Description is required.</p>
+										</div>
+									</div>
+
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="submit">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												Submit
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset" onclick="window.history.back()">
+												Cancel
+											</button>
+										</div>
+									</div>
+								</form>
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+
+						<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h4 class="modal-title">Work Order</h4>
+						      </div>
+						      <div class="modal-body">
+						        <p>Work order has been created successfully.</p>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-success" ng-click="get_workorder_view()">OK</button>
+						      </div>
+						    </div><!-- /.modal-content -->
+						  </div><!-- /.modal-dialog -->
+						</div><!-- /.modal -->
+
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+			<div class="footer">
+				<div class="footer-inner">
+					<!-- #section:basics/footer -->
+					<div class="footer-content">
+						
+					</div>
+
+					<!-- /section:basics/footer -->
+				</div>
+			</div>
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery1x.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/date-time/bootstrap-datepicker.js"></script>
+		<script src="assets/js/date-time/bootstrap-timepicker.js"></script>
+		
+
+		<script type="text/javascript">
+		$('#timepicker11,#timepicker12,#timepicker21,#timepicker22').on('change', function(){
+		    angular.element($(this)).triggerHandler('input');
+		});
+			$('#timepicker11,#timepicker12,#timepicker21,#timepicker22').timepicker({
+                              showInputs: false,
+                              desableFocus: false,
+                              showMeridian: false,
+                              timeRange: true
+                          });
+		</script>
+		<!-- ace scripts -->
+		<script src="assets/js/ace/elements.scroller.js"></script>
+		<script src="assets/js/ace/elements.aside.js"></script>
+		<script src="assets/js/ace/ace.js"></script>
+		<script src="assets/js/ace/ace.ajax-content.js"></script>
+		<script src="assets/js/ace/ace.touch-drag.js"></script>
+		<script src="assets/js/ace/ace.sidebar.js"></script>
+		<script src="assets/js/ace/ace.sidebar-scroll-1.js"></script>
+	</body>
+</html>

@@ -1,0 +1,7 @@
+input[type=checkbox].ace.ace-switch-cust+.lbl::before {
+	width: 88px;
+	text-indent: -36px;
+}
+input[type=checkbox].ace.ace-switch-cust:checked+.lbl::after {
+	left: 68px;
+}

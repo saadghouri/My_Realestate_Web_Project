@@ -1,0 +1,705 @@
+ <!--START SLIDESHOW HOME--> 
+<section id="slideshow-home" class="wrap noo-slideshow slideshow-home">
+    <div class="property-slider">
+        <div id="noo-slider-1" class="noo-slider noo-property-slide-wrap">
+                    <img src="assets/real_estate/images/slideshow/bg-slide1.jpg" style="width: 100%;" class="attachment-property-slider" alt="" />
+        </div>
+    </div>
+</section>
+ <!--END SLIDESHOW HOME--> 
+
+<!-- START SEARCH BOX -->
+<section id="search-box" class="wrap search-box" style="  margin-top: -485px;  opacity: 0.9;" ng-init="init()">
+    <div class="gsearch">
+        <div class="container" style="opacity: 1;">
+            <!-- START GSEARCH INFO -->
+            <div class="gsearch-info">
+                <h4 class="gsearch-info-title">Find Your Place</h4>
+                <div class="gsearch-info-content">Instantly find your desired place from your own idea of location, at any price <br> and other elements just by starting your search now</div>
+            </div>
+            <!-- END GSEARCH INFO -->
+
+            <!-- START GSEARCH WRAP -->
+            <div class="gsearch-wrap">
+                <form class="gsearchform" method="get" role="search">
+                    <div class="gsearch-content">
+                        <div class="gsearch-field">
+                            <div class="form-group" >
+                                <select class="form-control input-lg" id="country" ng-model="states" ng-options="country for (country, states) in countries">
+                                    <option value=''>All Countries</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-control input-lg" id="state" ng-model="cities" ng-options="state for (state,city) in states">
+                                    <option value=''>All States</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-control input-lg" id="city" ng-model="searchData.city" ng-options="city for city in cities">
+                                    <option value=''>All Cities</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group gstatus">
+                                <div class="label-select">
+                                    <select class="form-control" ng-model="searchData.status" >
+                                        <option value="">All Status</option>
+                                        <option value="Open House">Open house</option>
+                                        <option value="Rent">Rent</option>
+                                        <option value="Sale">Sale</option>
+                                        <option value="Sold">Sold</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group gtype">
+                                <div class="label-select">
+                                    <select class="form-control" ng-model="searchData.types" >
+                                        <option value="">All Type </option>
+                                        <option value="Apartment">Apartment</option>
+                                        <option value="Co-op">Co-op</option>
+                                        <option value="Condo">Condo</option>
+                                        <option value="Single Family Home">Single Family Home</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group gbed">
+                                <div class="label-select">
+                                    <select class="form-control" ng-model="searchData.bedrooms" >
+                                        <option value="">No. of Bedrooms</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5+</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group gbath">
+                                <div class="label-select">
+                                    <select class="form-control" ng-model="searchData.bathrooms" >
+                                        <option value="">No. of Bathrooms</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4+</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group gprice">
+                                <div class="label-select">
+                                    <select class="form-control" ng-model="searchData.price" >
+                                        <option value="">All Prices</option>
+                                        <option value="1">Less than 1000</option>
+                                        <option value="2">1000 - 5000</option>
+                                        <option value="3">5001 - 10000</option>
+                                        <option value="4">10000 - 50000</option>
+                                        <option value="5">50000+</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group s-prop-_noo_property_feature_school">
+                                <input type="hidden" name="noo_property_feature[school]" class="" value="0">
+                                <label for="_noo_property_feature_school" class="checkbox-label">
+                                    <input type="checkbox" id="_noo_property_feature_school" name="noo_property_feature[school]" ng-model="searchData.school" class="" value="1">&nbsp;School	<i></i>
+                                </label>
+                            </div>
+
+                            <div class="form-group s-prop-_noo_property_feature_hospital">
+                                <input type="hidden" name="noo_property_feature[hospital]" class="" value="0">
+                                <label for="_noo_property_feature_hospital" class="checkbox-label">
+                                    <input type="checkbox" id="_noo_property_feature_hospital" name="noo_property_feature[hospital]" ng-model="searchData.hospital" class="" value="1">&nbsp;Hospital	<i></i>
+                                </label>
+                            </div>
+
+                            <div class="form-group s-prop-_noo_property_feature_shopping_center">
+                                <input type="hidden" name="noo_property_feature[shopping_center]" class="" value="0">
+                                <label for="_noo_property_feature_shopping_center" class="checkbox-label">
+                                    <input type="checkbox" id="_noo_property_feature_shopping_center" name="noo_property_feature[shopping_center]" ng-model="searchData.shopping_center" class="" value="1">&nbsp;Shopping Center	<i></i>
+                                </label>
+                            </div>
+
+                            <div class="form-group s-prop-_noo_property_feature_park">
+                                <input type="hidden" name="noo_property_feature[park]" class="" value="0">
+                                <label for="_noo_property_feature_park" class="checkbox-label">
+                                    <input type="checkbox" id="_noo_property_feature_park" name="noo_property_feature[park]" ng-model="searchData.park" class="" value="1">&nbsp;Park	<i></i>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="gsearch-action">
+                            <div class="gsubmit">
+                                <a class="btn btn-deault" ng-click="searchProperty();">Search Property</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- END GSEARCH WRAP -->
+        </div>
+    </div>
+</section>
+<!-- END SEARCH BOX -->
+
+<!-- START RECENT PROPERTIES -->
+<section id="recent-properties-slider" class="wrap recent-properties recent-properties-slider">
+    <div class="container" ng-if="recentProperty">
+        <div class="recent-properties-inner">
+            <div class="properties grid">
+                <div class="properties-header">
+                    <h1 class="page-title">Recent Properties</h1>
+                </div>
+                <div class="properties-content">
+                    <article class="hentry" ng-repeat="att in recentProperty">
+                        <div class="property-featured">
+                            <a class="content-thumb" href="#/property/view/{{att.id}}">
+                                <img src="{{att.image_path}}" alt="">
+                            </a>
+                            <span class="property-label sold" ng-if='att.status == "Sold"' style='background-color: #D53559 !important;'>Sold</span>
+                                    <span class="property-label sold" ng-if='att.status == "Sale" || att.status == "Rent"' style='background-color: #6c6a64 !important;'>For {{att.status}}</span>
+                            <span class="property-category"><a href="#/property/view/{{att.id}}">{{att.type}}</a>
+                            </span>
+                        </div>
+                        <div class="property-wrap">
+                            <h2 class="property-title">
+                                <a href="#/property/view/{{att.id}}" title="{{att.title}}">{{att.title}} &nbsp;</a>
+                            </h2>
+                            <div class="property-excerpt">
+                                <p>{{att.description}}</p>
+                            </div>
+                            <div class="property-summary">
+                                <div class="property-detail">
+                                    <div class="size">
+                                        <span>{{att.area}} sqft</span>
+                                    </div>
+                                    <div class="bathrooms">
+                                        <span>{{att.bathrooms}}</span>
+                                    </div>
+                                    <div class="bedrooms">
+                                        <span>{{att.bedrooms}}</span>
+                                    </div>
+                                </div>
+                                <div class="property-info">
+                                    <div class="property-price">
+                                        <span>
+                                            <span class="amount">&#36;{{att.price}}</span>
+                                        </span>
+                                    </div>
+                                    <div class="property-action">
+                                        <a href="#/property/view/{{att.id}}">More Details</a>
+                                    </div>
+                                </div>
+                                <div class="property-info property-fullwidth-info">
+                                    <div class="property-price">
+                                        <span><span class="amount">$#36;{{att.price}}/Month</span> </span>
+                                    </div>
+                                    <div class="size"><span>{{att.area}} sqft</span></div>
+                                    <div class="bathrooms"><span>{{att.bathrooms}}</span></div>
+                                    <div class="bedrooms"><span>{{att.bedrooms}}</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="property-action property-fullwidth-action">
+                            <a href="#/property/view/{{att.id}}">More Details</a>
+                        </div>
+                    </article>              
+                </div>
+            </div>
+        </div>
+    </div>  
+</section>
+<!-- END RECENT PROPERTIES -->
+
+<!-- START FEATURED PROPERTIES -->
+<!--<section id="recent-properties-featured" class="wrap recent-properties recent-properties-featured">
+    <div class="container">
+        <div class="recent-properties-inner">
+            <div class="recent-properties-title">
+                <h3>Featured Properties</h3>
+            </div>
+            <div class="recent-properties-content">
+                <div class="caroufredsel-wrap">
+                    <ul>
+                        <li>
+                            <article class="hentry has-featured">
+                                <div class="property-featured">
+                                    <a class="content-thumb" href="property-details.html">
+                                        <img src="assets/real_estate/images/property/featured-properties1.jpg" class="attachment-property-image" alt="" /> </a>
+                                    <span class="property-category"><a href="type-single-family-home.html">Single Family Home</a></span>
+                                </div>
+                                <div class="property-wrap">
+                                    <h2 class="property-title"><a href="property-details.html" title="Visalia, NJ 93277">Visalia, NJ 93277</a></h2>
+                                    <div class="property-excerpt">
+                                        <p>This 4 bedroom home sits on an oversized lot at the end of a cul-de-sac in an established neighborhood. It is in need of work however would make a great...</p>
+                                    </div>
+                                    <div class="property-summary">
+                                        <div class="property-detail">
+                                            <div class="size"><span>1913 sqft</span>
+                                            </div>
+                                            <div class="bathrooms"><span>2</span>
+                                            </div>
+                                            <div class="bedrooms"><span>4</span>
+                                            </div>
+                                        </div>
+                                        <div class="property-info">
+                                            <div class="property-price">
+                                                <span><span class="amount">&#36;154,500</span> </span>
+                                            </div>
+                                            <div class="property-action">
+                                                <a href="property-details.html">More Details <i class="fa fa-arrow-circle-o-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="hentry has-featured">
+                                <div class="property-featured">
+                                    <a class="content-thumb" href="property-details.html">
+                                        <img src="assets/real_estate/images/property/featured-properties1.jpg" class="attachment-property-image" alt="" /> </a>
+                                    <span class="property-category"><a href="type-single-family-home.html">Single Family Home</a></span>
+                                </div>
+                                <div class="property-wrap">
+                                    <h2 class="property-title"><a href="property-details.html" title="Single Family Residential, NJ">Single Family Residential, NJ</a></h2>
+                                    <div class="property-excerpt">
+                                        <p>Classic 60's ranch living. House has hardwood floors and hard coat plaster walls and ceilings in good condition. Intimate backyard for private gatherings. Full basement leaves plenty of room for...</p>
+                                    </div>
+                                    <div class="property-summary">
+                                        <div class="property-detail">
+                                            <div class="size"><span>1118 sqft</span>
+                                            </div>
+                                            <div class="bathrooms"><span>2</span>
+                                            </div>
+                                            <div class="bedrooms"><span>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="property-info">
+                                            <div class="property-price">
+                                                <span><span class="amount">&#36;299,000</span> </span>
+                                            </div>
+                                            <div class="property-action">
+                                                <a href="property-details.html">More Details <i class="fa fa-arrow-circle-o-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="hentry has-featured">
+                                <div class="property-featured">
+                                    <a class="content-thumb" href="property-details.html">
+                                        <img src="assets/real_estate/images/property/featured-properties1.jpg" class="attachment-property-image" alt="" /> </a>
+                                    <span class="property-category"><a href="type-apartment.html">Apartment</a></span>
+                                </div>
+                                <div class="property-wrap">
+                                    <h2 class="property-title"><a href="property-details.html" title="Peter Cooper Village">Peter Cooper Village</a></h2>
+                                    <div class="property-excerpt">
+                                        <p>Peter Cooper Village/ Stuyvesant Town provides an unbeatable combination of city energy and community tranquility, providing insulation from the city that surrounds it, yet situated next to Manhattan's most dynamic...</p>
+                                    </div>
+                                    <div class="property-summary">
+                                        <div class="property-detail">
+                                            <div class="size"><span>1304 sqft</span>
+                                            </div>
+                                            <div class="bathrooms"><span>2</span>
+                                            </div>
+                                            <div class="bedrooms"><span>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="property-info">
+                                            <div class="property-price">
+                                                <span><span class="amount">&#36;5,109</span> /month</span>
+                                            </div>
+                                            <div class="property-action">
+                                                <a href="property-details.html">More Details <i class="fa fa-arrow-circle-o-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+                <a class="caroufredsel-prev" href="#"></a>
+                <a class="caroufredsel-next" href="#"></a>
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- END FEATURED PROPERTIES -->
+
+<!-- START OUR SERVICES -->
+<!--<section id="our-sevices" class="wrap our-sevices">
+    <div class="container">
+        <div class="parallax">
+            <div class="bg parallax-bg"></div>
+            <div class="overlay"></div>
+            <div class="our-sevices-content">
+                <div class="row clearfix">
+
+                    <div class="col-xs-12 col-sm-4 our-sevices-col">
+                        <span class="service-icon">
+                            <i class="fa fa-home"></i>
+                        </span>
+                        <hr class="noo-gap">
+                        <div class="text-block">
+                            <h5>Hottest Property List</h5>
+                            <p>Wherever you are and you want to go, we provide you extremely hot and continuously<br>updated property list.</p>
+                            <p><a class="icon-right" href="#">See latest list<i class="fa fa-arrow-circle-o-right"></i></a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 our-sevices-col">
+                        <span  class="service-icon">
+                            <i class="fa fa-thumbs-o-up"></i>
+                        </span>
+                        <hr class="noo-gap">
+                        <div class="text-block">
+                            <h5>Best Price In Market</h5>
+                            <p>Wherever you are and you want to go, we provide you extremely hot and continuously
+                                <br>updated property list.</p>
+                            <p><a class="icon-right" href="#">See latest list<i class="fa fa-arrow-circle-o-right"></i></a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 our-sevices-col">
+                        <span class="service-icon">
+                            <i class="fa fa-star"></i>
+                        </span>
+                        <hr class="noo-gap">
+                        <div class="text-block">
+                            <h5>Guaranteed Service</h5>
+                            <p>Wherever you are and you want to go, we provide you extremely hot and continuously
+                                <br>updated property list.</p>
+                            <p>
+                                <a class="icon-right" href="#">See latest list<i class="fa fa-arrow-circle-o-right"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- END OUR SERVICES -->
+
+<!-- START RECENT AGENTS -->
+<!--<section id="recent-agents-slider" class="wrap recent-agents recent-agents-slider">
+    <div class="container">
+        <div class="recent-agents-inner">
+            <div class="recent-agents-title">
+                <h3>MEET OUR AGENTS</h3>
+            </div>
+            <div class="recent-agents-content">
+                <div class="caroufredsel-wrap row">
+                    <ul>
+                        <li class="col-md-4 col-sm-6">
+                             START AGENT 1 
+                            <article class="hentry has-featured">
+                                <div class="agent-featured">
+                                    <a class="content-thumb" href="agents-detail.html">
+                                        <img src="assets/real_estate/images/agent/agent1.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="agent-wrap">
+                                    <h2 class="agent-title"><a href="agents-detail.html" title="Adam Scooter">Adam Scooter</a></h2>
+                                    <div class="agent-excerpt">
+                                        <p>When people are looking for a real estate professional to consult, studies show they care most about loyalty and accountability....</p>
+                                    </div>
+                                    <div class="agent-social-wrap">
+                                        <div class="social-list agent-social">
+                                            <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                                            <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                                            <a href="#" title="Google +" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                            <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                             END AGENT 1 
+                        </li>
+
+                        <li class="col-md-4 col-sm-6">
+                             START AGENT 2 
+                            <article class="hentry has-featured">
+                                <div class="agent-featured">
+                                    <a class="content-thumb" href="agents-detail.html">
+                                        <img src="assets/real_estate/images/agent/agent1.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="agent-wrap">
+                                    <h2 class="agent-title"><a href="agents-detail.html" title="Thomas Adam Clayton">Thomas Adam Clayton</a></h2>
+                                    <div class="agent-excerpt">
+                                        <p>Recognized as the top selling broker in Lower Manhattan and among the best in New York City, Thomas Adam Clayton...</p>
+                                    </div>
+                                    <div class="agent-social-wrap">
+                                        <div class="social-list agent-social">
+                                            <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                                            <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                                            <a href="#" title="Google +" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                            <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                             END AGENT 2 
+                        </li>
+
+                        <li class="col-md-4 col-sm-6">
+                             START AGENT 3 
+                            <article class="hentry has-featured">
+                                <div class="agent-featured">
+                                    <a class="content-thumb" href="agents-detail.html">
+                                        <img src="assets/real_estate/images/agent/agent1.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="agent-wrap">
+                                    <h2 class="agent-title"><a href="agents-detail.html" title="Stacy Barron">Stacy Barron</a></h2>
+                                    <div class="agent-excerpt">
+                                        <p>Stacy is a long time resident and successful broker in the Lincoln Center area. Never far from home, sheis intimately acquainted...</p>
+                                    </div>
+                                    <div class="agent-social-wrap">
+                                        <div class="social-list agent-social">
+                                            <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                                            <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                                            <a href="#" title="Google +" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                            <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                             END AGENT 3 
+                        </li>
+
+                        <li class="col-md-4 col-sm-6">
+                             START AGENT 4 
+                            <article class="hentry has-featured">
+                                <div class="agent-featured">
+                                    <a class="content-thumb" href="agents-detail.html">
+                                        <img src="assets/real_estate/images/agent/agent1.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="agent-wrap">
+                                    <h2 class="agent-title"><a href="agents-detail.html" title="Michael Feng">Michael Feng</a></h2>
+                                    <div class="agent-excerpt">
+                                        <p>Michael Feng is a real estate agent, but his true goal is to be a resource for his clients. Since 2006,...</p>
+                                    </div>
+                                    <div class="agent-social-wrap">
+                                        <div class="social-list agent-social">
+                                            <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                                            <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                                            <a href="#" title="Google +" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                            <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                             END AGENT 4 
+                        </li>
+
+                        <li class="col-md-4 col-sm-6">
+                             START AGENT 5 
+                            <article class="hentry has-featured">
+                                <div class="agent-featured">
+                                    <a class="content-thumb" href="agents-detail.html">
+                                        <img src="assets/real_estate/images/agent/agent1.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="agent-wrap">
+                                    <h2 class="agent-title"><a href="agents-detail.html" title="John Doe">John Doe</a></h2>
+                                    <div class="agent-excerpt">
+                                        <p>John Doe, the founding partner of Elegran, started the company in 2007 in a unique way. He did this without...</p>
+                                    </div>
+                                    <div class="agent-social-wrap">
+                                        <div class="social-list agent-social">
+                                            <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                                            <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                                            <a href="#" title="Google +" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                            <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                             END AGENT 5 
+                        </li>
+                    </ul>
+                </div>
+                <a class="caroufredsel-prev" href="javascript:void(0)"></a>
+                <a class="caroufredsel-next" href="javascript:void(0)"></a>
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- END RECENT AGENTS -->
+
+<!-- START CALL TO ACTION -->
+<!--<section id="call-to-action" class="wrap call-to-action">
+    <div class="container">
+        <div class="parallax">
+            <div class="bg parallax-bg"></div>
+            <div class="overlay"></div>
+            <div class="call-to-action-content">
+                <div class="row clearfix">
+                    <div class="col-xs-12 col-sm-6 item-col">
+                        <div class="text-block">
+                            <h3>ONLY IN JULY</h3>
+                            <p>Be the first to get our hottest unlisted property list!</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 item-col">
+                        <div class="call-to-action-btn">
+                            <a href="#" class="btn" role="button">GET IT NOW</a>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- END CALL TO ACTION -->
+
+<!-- START TESTIMONIAL -->
+<!--<section id="testimonial" class="wrap testimonial">
+    <div class="container">
+        <div class="testimonial-inner">
+            <div class="section-title">
+                <h3>Testimonial</h3>
+            </div>
+            <div class="testimonial-content">
+                <div class="carousel slide" id="carousel-testimonial">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-testimonial" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-testimonial" data-slide-to="1"></li>
+                        <li data-target="#carousel-testimonial" data-slide-to="2"></li>
+                        <li data-target="#carousel-testimonial" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                         START ITEM 1 
+                        <div class="item active">
+                            <div class="slide-content">
+                                <div class="testimonial-desc">“I found my current apartment on Citilights with extraordinary help from them and totally satisfied with the choice I made. All I had to do was to tell what I was looking for and I got back property suggestions nearly exact to my imagination. Among those, I finally chose mine now then completed procedure at ease. Highly recommend Citilights for your home search.”</div>
+                                <div class="our-customer-info">
+                                    <div class="avatar">
+                                        <a href="#"><img src="assets/real_estate/images/other/customer1.png" alt=""></a>
+                                    </div>
+                                    <div class="custom-desc">
+                                        <h4>Dave Softel</h4>
+                                        <p>Happy Buyer of June</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         END ITEM 1 
+
+                         START ITEM 2 
+                        <div class="item">
+                            <div class="slide-content">
+                                <div class="testimonial-desc">“I found my current apartment on Citilights with extraordinary help from them and totally satisfied with the choice I made. All I had to do was to tell what I was looking for and I got back property suggestions nearly exact to my imagination. Among those, I finally chose mine now then completed procedure at ease. Highly recommend Citilights for your home search.”</div>
+                                <div class="our-customer-info">
+                                    <div class="avatar">
+                                        <a href="#"><img src="assets/real_estate/images/other/customer1.png" alt=""></a>
+                                    </div>
+                                    <div class="custom-desc">
+                                        <h4>Dave Softel</h4>
+                                        <p>Happy Buyer of June</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         END ITEM 2 
+
+                         START ITEM 3 
+                        <div class="item">
+                            <div class="slide-content">
+                                <div class="testimonial-desc">“I found my current apartment on Citilights with extraordinary help from them and totally satisfied with the choice I made. All I had to do was to tell what I was looking for and I got back property suggestions nearly exact to my imagination. Among those, I finally chose mine now then completed procedure at ease. Highly recommend Citilights for your home search.”</div>
+                                <div class="our-customer-info">
+                                    <div class="avatar">
+                                        <a href="#"><img src="assets/real_estate/images/other/customer1.png" alt=""></a>
+                                    </div>
+                                    <div class="custom-desc">
+                                        <h4>Dave Softel</h4>
+                                        <p>Happy Buyer of June</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         END ITEM 3 
+
+                         START ITEM 4 
+                        <div class="item">
+                            <div class="slide-content">
+                                <div class="testimonial-desc">“I found my current apartment on Citilights with extraordinary help from them and totally satisfied with the choice I made. All I had to do was to tell what I was looking for and I got back property suggestions nearly exact to my imagination. Among those, I finally chose mine now then completed procedure at ease. Highly recommend Citilights for your home search.”</div>
+                                <div class="our-customer-info">
+                                    <div class="avatar">
+                                        <a href="#"><img src="assets/real_estate/images/other/customer1.png" alt=""></a>
+                                    </div>
+                                    <div class="custom-desc">
+                                        <h4>Dave Softel</h4>
+                                        <p>Happy Buyer of June</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         END ITEM 4 
+                    </div>
+                </div>            
+            </div>
+        </div>
+
+    </div>
+</section>-->
+<!-- END TESTIMONIAL -->
+
+<!-- START OUR PARTNERS -->
+<!--<section id="our-partners" class="wrap our-partners">
+    <div class="container">
+        <div class="our-partners-inner">
+            <div class="row">
+                <div class="col-sm-6 col-md-2 item-col">
+                    <a href="http://themeforest.net/" target="_blank">
+                        <img class="item-image" src="assets/real_estate/images/partner/partner1.png" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-2 item-col">
+                    <a href="http://codecanyon.net/" target="_blank">
+                        <img class="item-image" src="assets/real_estate/images/partner/partner2.png" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-2 item-col">
+                    <a href="http://videohive.net/" target="_blank">
+                        <img class="item-image" src="assets/real_estate/images/partner/partner3.png" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-2 item-col">
+                    <a href="http://audiojungle.net/" target="_blank">
+                        <img class="item-image" src="assets/real_estate/images/partner/partner4.png" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-2 item-col">
+                    <a href="http://photodune.net/" target="_blank">
+                        <img class="item-image" src="assets/real_estate/images/partner/partner5.png" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-2 item-col">
+                    <a href="http://activeden.net/" target="_blank">
+                        <img class="item-image" src="assets/real_estate/images/partner/partner6.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>      
+    </div>
+</section>-->
+<!-- END OUR PARTNERS -->

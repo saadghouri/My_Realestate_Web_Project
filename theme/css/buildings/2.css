@@ -1,0 +1,16 @@
+.main_logo{
+  height: 180px;
+  background: url("../../../app_images/1645.png") no-repeat center center !important;
+}
+.nav_background_logo{
+  float: right;
+  background: url("../../../app_images/top_bar_logo.jpg") no-repeat center center !important;
+}
+.back_div {
+	max-width: 100%;
+	overflow-x: hidden;
+	font-family: "Raleway";
+	font-size: 16px;
+	background: url('../../../assets/img/bg/2.jpg') left bottom fixed !important;
+	color: white;
+}

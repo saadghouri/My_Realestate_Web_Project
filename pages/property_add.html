@@ -1,0 +1,295 @@
+
+<!-- START NOO MAINBODY -->
+<div class="container noo-mainbody" ng-init="init()">
+    <div class="noo-mainbody-inner">
+        <div class="row clearfix">
+            <!-- START SIDEBAR -->
+            <div class="noo-sidebar noo-sidebar-left col-xs-12 col-md-4">
+                <div class="noo-sidebar-inner">
+                    <div class="user-sidebar-menu dashboard-sidebar">
+<!--                        <div class="user-avatar content-thumb">
+                            <img src="images/agent/agent1.jpg" alt="">
+                        </div>-->
+                        <div class="user-menu-links">
+                            <a href="#/profile" class="user-link active"><i class="fa fa-user"></i>My Profile</a>
+                            <a href="#/property" class="user-link "><i class="fa fa-home"></i>My Properties</a>
+                        </div>
+                        <div class="user-menu-links user-menu-logout">
+                            <a href="#/logout" class="user-link" title="Logout"><i class="fa fa-sign-out"></i>Log Out</a>
+                        </div>
+                        <div class="user-menu-submit">
+                            <a href="#/property/add" class="btn btn-secondary">SUBMIT PROPERTY</a>
+                        </div>
+                    </div>						
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+
+            <!-- START MAIN CONTENT -->
+            <div class="noo-content col-xs-12 col-md-8">
+                <div class="submit-header">
+                    <h1 class="page-title">Submit Property</h1>
+                </div>
+                <div class="submit-content">
+                    <form id="newPropertyForm" name="newPropertyForm" class="noo-form property-form"  ng-submit="addProperty(newPropertyForm.$valid)" role="form" autocomplete="off">
+                        <div class="noo-control-group">
+                            <div class="group-title">Property Description &amp; Price</div>
+                            <div class="group-container row">
+                                <div class="form-message">
+                                    <div class="alert alert-success fade in" ng-if="message">
+                                        <span ng-if="message">
+                                            {{ message | i18next }}
+                                        </span>
+                                    </div>
+                                    <div class="alert alert-danger fade in" ng-if="systemErrors">
+                                        <span ng-if="systemErrors">
+                                            {{ systemErrors | i18next }}
+                                        </span>									            	
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group s-prop-title" ng-class="{ 'has-error' : newPropertyForm.title.$invalid && !newPropertyForm.title.$pristine }">
+                                        <label for="title">Title&nbsp;<span style="color:red;">&#42;</span></label>
+                                        <input type="text" id="title" class="form-control" value="" name="title" required=""  ng-model="propertyData.title">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-area">
+                                        <label for="area">Area&nbsp;(sqft)</label>
+                                        <input type="number" id="area" class="form-control" value="" name="area" ng-model="propertyData.area">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group s-prop-desc" ng-class="{ 'has-error' : newPropertyForm.desc.$invalid && !newPropertyForm.desc.$pristine }">
+                                        <label for="textarea">Description&nbsp;<span style="color:red;">&#42;</span></label>
+                                        <textarea id="desc" name="desc" rows="10" required="" ng-model="propertyData.desc"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                   <div class="form-group s-prop-type" ng-class="{ 'has-error' : newPropertyForm.type.$invalid && !newPropertyForm.type.$pristine }">
+                                        <label>Type&nbsp;<span style="color:red;">&#42;</span></label>
+                                        <div class="dropdown label-select">
+                                            <select class="form-control" ng-model="propertyData.type" required="">
+                                                <option value="Apartment">Apartment</option>
+                                                <option value="Co-op">Co-op</option>
+                                                <option value="Condo">Condo</option>
+                                                <option value="Single Family Home">Single Family Home</option>
+                                            </select>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-status">
+                                        <label>Status</label>
+                                        <div class="dropdown label-select">
+                                            <select class="form-control" ng-model="propertyData.status">
+                                                <option value="Sale">Sale</option>
+                                                <option value="Open house">Open house</option>
+                                                <option value="Rent">Rent</option>
+                                                <option value="Sold">Sold</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-price row" ng-class="{ 'has-error' : newPropertyForm.price.$invalid && !newPropertyForm.price.$pristine }">
+                                        <div class="price col-md-12">
+                                            <label for="price">Price&nbsp;<span style="color:red;">&#42;</span>&nbsp;(&#36;)</label>
+                                            <input type="number" id="price" class="form-control" value="" name="price" ng-model="propertyData.price" required="">
+                                        </div>
+<!--                                        <div class="price_label col-md-8">
+                                            <label for="price_label">After price label (ex: "per month")</label>
+                                            <input type="text" id="price_label" class="form-control" value="" name="price_label">
+                                        </div>-->
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-bedrooms" ng-class="{ 'has-error' : newPropertyForm.bedrooms.$invalid && !newPropertyForm.bedrooms.$pristine }">
+                                        <label for="bedrooms">Bed Rooms&nbsp;<span style="color:red;">&#42;</span></label>
+                                        <input type="number" id="bedrooms" class="form-control" ng-model="propertyData.bedrooms" name="bedrooms" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-bathrooms" ng-class="{ 'has-error' : newPropertyForm.bathrooms.$invalid && !newPropertyForm.bathrooms.$pristine }">
+                                        <label for="bathrooms">Bath Rooms&nbsp;<span style="color:red;">&#42;</span></label>
+                                        <input type="number" id="bathrooms" class="form-control" ng-model="propertyData.bathrooms" name="bathrooms" required="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="noo-control-group">
+                            <div class="group-title">Property Images</div>
+                            <div class="group-container row">
+                                <div class="col-md-12">
+                                    <div id="upload-container">
+                                        <div id="property_images" class="col-xs-12" style="text-align: center;height: auto;">
+                                        </div>
+                                        <div style="clear: both;"></div>
+                                        <br>
+                                        <div id="aaiu-upload-container">
+                                            <div class="moxie-shim moxie-shim-html5">
+                                                <label for="input-upload" class="btn btn-secondary btn-lg" id="camera_upload" ng-click="camera_upload($event)">Select Images</label>
+                                                <input type="file" onchange="angular.element(this).scope().prepareUpload2(event)" id="my_file" style="display: none;">
+                                            </div>
+                                            <p>At least 1 image is required for a valid submission. The featured image will be used to dispaly on property listing page.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="noo-control-group">
+                            <div class="group-title">Additional Info</div>
+                            <div class="group-container row">
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-_noo_property_field_lot_area">
+                                        <label for="_noo_property_field_lot_area">Lot Area</label>
+                                        <input type="text" id="_noo_property_field_lot_area" name="noo_property_field[lot_area]" class="form-control"  ng-model="propertyData.lot_area">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-_noo_property_field_year_built">
+                                        <label for="_noo_property_field_year_built">Year Built</label>
+                                        <input type="text" id="_noo_property_field_year_built" name="noo_property_field[year_built]" class="form-control"  ng-model="propertyData.year_built">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-_noo_property_field_flooring" >
+                                        <label for="_noo_property_field_flooring">Flooring</label>
+                                        <input type="text" id="_noo_property_field_flooring" name="noo_property_field[flooring]" class="form-control"  ng-model="propertyData.flooring">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-_noo_property_field_garage_size" >
+                                        <label for="_noo_property_field_garage_size">Garage Size</label>
+                                        <input type="text" id="_noo_property_field_garage_size" name="noo_property_field[garage_size]" class="form-control"  ng-model="propertyData.garage_size">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-_noo_property_field_roofling">
+                                        <label for="_noo_property_field_roofling">Roofing</label>
+                                        <input type="text" id="_noo_property_field_roofling" name="noo_property_field[roofing]" class="form-control"  ng-model="propertyData.roofing">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-_noo_property_field_parking">
+                                        <label for="_noo_property_field_parking">Parking</label>
+                                        <input type="text" id="_noo_property_field_parking" name="noo_property_field[parking]" class="form-control"  ng-model="propertyData.parking">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group s-prop-_noo_property_field_style">
+                                        <label for="_noo_property_field_style">Style</label>
+                                        <input type="text" id="_noo_property_field_style" name="noo_property_field[style]" class="form-control"  ng-model="propertyData.style">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="noo-control-group">
+                            <div class="group-title">Listing Location</div>
+                            <div class="group-container row">
+                                <div class="col-md-12">
+                                    <div class="form-group s-prop-address" ng-class="{ 'has-error' : newPropertyForm.address.$invalid && !newPropertyForm.address.$pristine }">
+                                        <label for="address">Address&nbsp;<span style="color:red;">&#42;</span></label>
+                                        <textarea id="address" class="form-control" name="address" rows="1" required="" ng-model="propertyData.address"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="form-group" ng-class="{ 'has-error' : newPropertyForm.states.$invalid && !newPropertyForm.states.$pristine }">
+                                        <label class="control-label" for="Country">Country&nbsp;<span style="color:red;">&#42;</span></label>
+                                        <select class="form-control input-lg" id="country" ng-model="states" ng-options="country for (country, states) in countries">
+                                            <option value=''>Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="form-group" ng-class="{ 'has-error' : newPropertyForm.cities.$invalid && !newPropertyForm.cities.$pristine }">
+                                        <label class="control-label" for="States">State&nbsp;<span style="color:red;">&#42;</span></label>
+                                        <select class="form-control input-lg" id="state" ng-disabled="!states" ng-model="cities" ng-options="state for (state,city) in states">
+                                            <option value=''>Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="form-group" ng-class="{ 'has-error' : newPropertyForm.city.$invalid && !newPropertyForm.city.$pristine }">
+                                        <label class="control-label" for="City">City&nbsp;<span style="color:red;">&#42;</span></label>
+                                        <select class="form-control input-lg" id="city" ng-disabled="!cities || !states" ng-model="propertyData.city" ng-options="city for city in cities">
+                                            <option value=''>Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+<!--                            <div class="col-md-12">
+                                <div class="noo-control-group small-group">
+                                    <div class="group-title">Property Video</div>
+                                    <div class="group-container row">
+                                        <div class="col-md-6">
+                                            <div class="form-group s-prop-video">
+                                                <label for="_video_embedded">Video Embedded</label>
+                                                <input type="text" id="_video_embedded" class="form-control"  ng-model="propertyData.video" name="video">
+                                                <small>Enter a Youtube, Vimeo, Soundcloud, etc... URL.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div class="col-md-12">
+                                <div class="noo-control-group small-group">
+                                    <div class="group-title">Facilities</div>
+                                    <div class="group-container row">
+                                        <div class="col-md-6">
+                                            <div class="form-group s-prop-_noo_property_feature_school">
+                                                <input type="hidden" name="noo_property_feature[school]" class="" value="0">
+                                                <label for="_noo_property_feature_school" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_school" name="noo_property_feature[school]" ng-model="propertyData.school" class="" value="1">&nbsp;School	<i></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group s-prop-_noo_property_feature_hospital">
+                                                <input type="hidden" name="noo_property_feature[hospital]" class="" value="0">
+                                                <label for="_noo_property_feature_hospital" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_hospital" name="noo_property_feature[hospital]" ng-model="propertyData.hospital" class="" value="1">&nbsp;Hospital	<i></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group s-prop-_noo_property_feature_shopping_center">
+                                                <input type="hidden" name="noo_property_feature[shopping_center]" class="" value="0">
+                                                <label for="_noo_property_feature_shopping_center" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_shopping_center" name="noo_property_feature[shopping_center]" ng-model="propertyData.shopping_center" class="" value="1">&nbsp;Shopping Center	<i></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group s-prop-_noo_property_feature_park">
+                                                <input type="hidden" name="noo_property_feature[park]" class="" value="0">
+                                                <label for="_noo_property_feature_park" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_park" name="noo_property_feature[park]" ng-model="propertyData.park" class="" value="1">&nbsp;Park	<i></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="noo-submit row">
+                            <div class="col-md-12">
+                                <input type="submit" class="btn btn-lg rounded metro btn-primary" id="property_submit" value="Add Property">
+                                <!--<label>Your submission will be reviewed by Administrator before it can be published</label>-->
+                            </div>
+                        </div>
+                    </form>
+                </div>						
+            </div>	  		
+            <!-- END MAIN CONTENT -->
+        </div>
+    </div>
+</div>
+<!-- END NOO MAINBODY -->

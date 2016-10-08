@@ -1,0 +1,267 @@
+
+<!-- START MAINBODY -->
+<div class="container noo-mainbody" ng-init="init()">
+    <div class="noo-mainbody-inner">
+        <div class="row clearfix">
+            <!-- START MAIN CONTENT -->
+            <div class="noo-content col-xs-12 col-md-8">
+                <div class="recent-properties">
+                    <div class="properties grid">
+                        <!-- START PROPERTIES HEADER -->
+                        <div class="properties-header">
+                            <h1 class="page-title">Properties</h1>
+                            <div class="properties-toolbar">
+                                <form class="properties-ordering">
+                                    <div class="properties-ordering-label">Sort by</div>
+                                    <div class="form-group properties-ordering-select">
+                                        <div class="label-select">
+                                            <select class="form-control" ng-model="searchData.sort" ng-change="init()">
+                                                <option value='0'>Date </option>
+                                                <option value='1'>Price (low to high)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- END PROPERTIES HEADER -->
+                        <div ng-show="noResult">No Result Found.</div>
+                        <!-- START PROPERTIES CONTENT -->
+                        <div class="properties-content">
+                            <article class="hentry" ng-repeat="att in searchResult">
+                                <div class="property-featured">
+                                    <!--<span class="featured"><i class="fa fa-star"></i></span>-->
+                                    <a class="content-thumb" href="#/property/view/{{att.id}}">
+                                        <img src="{{att.image_path}}" alt="">
+                                    </a>
+                                    <span class="property-label sold" ng-if='att.status == "Sold"' style='background-color: #D53559 !important;'>Sold</span>
+                                    <span class="property-label sold" ng-if='att.status == "Sale" || att.status == "Rent"' style='background-color: #6c6a64 !important;'>For {{att.status}}</span>
+                                    <span class="property-category"><a href="#/property/view/{{att.id}}">{{att.type}}</a></span>
+                                </div>
+                                <div class="property-wrap">
+                                    <p style="  margin: 0;  padding: 15px 15px;  background: #f9f9f9;">{{att.posted}}</p>
+                                    <h2 class="property-title">
+                                        <a href="#/property/view/{{att.id}}" title="{{att.title}}">{{att.title}}</a>
+                                    </h2>
+                                    <div class="property-excerpt">
+                                        
+                                        <!--<p>This 4 bedroom home sits on an oversized lot at the end of a cul-de-sac...</p>-->
+                                        <p class="property-fullwidth-excerpt">{{att.description}}</p>
+                                        <!--<p>{{att.description}}</p>-->
+                                    </div>
+                                    <div class="property-summary">
+                                        <div class="property-detail">
+                                            <div class="size">
+                                                <span>{{att.area}} sqft</span>
+                                            </div>
+                                            <div class="bathrooms">
+                                                <span>{{att.bathrooms}}</span>
+                                            </div>
+                                            <div class="bedrooms">
+                                                <span>{{att.bedrooms}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="property-info">
+                                            <div class="property-price">
+                                                <span>
+                                                    <span class="amount">&#36;{{att.price}}</span>
+                                                </span>
+                                            </div>
+                                            <div class="property-action">
+                                                <a href="#/property/view/{{att.id}}">More Details</a>
+                                            </div>
+                                        </div>
+                                        <div class="property-info property-fullwidth-info">
+                                            <div class="property-price">
+                                                <span><span class="amount">&#36;{{att.price}}</span> </span>
+                                            </div>
+                                            <div class="size"><span>{{att.area}} sqft</span></div>
+                                            <div class="bathrooms"><span>{{att.bathrooms}}</span></div>
+                                            <div class="bedrooms"><span>{{att.bedrooms}}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="property-action property-fullwidth-action">
+                                    <a href="#/property/view/{{att.id}}">More Details</a>
+                                </div>
+                            </article>
+
+                            <div class="clearfix"></div>
+
+                            <!-- START PAGINATION NAVIGATION -->
+<!--                            <nav class="pagination-nav">
+                                <ul class="pagination list-center">
+                                    <li><a class="prev page-numbers" href="#"><i class="fa fa-angle-left"></i></a></li>
+                                    <li><span class="page-numbers current">1</span></li>
+                                    <li><a class="page-numbers" href="#">2</a></li>
+                                    <li><span class="page-dots"><i class="fa fa-ellipsis-h"></i></span></li>
+                                    <li><a class="page-numbers" href="#">7</a></li>
+                                    <li><a class="page-numbers" href="#">8</a></li>
+                                    <li><a class="next page-numbers" href="#"><i class="fa fa-angle-right"></i></a></li>
+                                </ul>
+                            </nav>-->
+                            <!-- END PAGINATION NAVIGATION -->
+                        </div>
+                        <!-- END PROPERTIES CONTENT -->
+                    </div>							
+                </div>												  		
+            </div>	  		
+            <!-- END MAIN CONTENT -->
+
+            <!-- START SIDEBAR -->
+            <div class="noo-sidebar noo-sidebar-right col-xs-12 col-md-4">
+                <div class="noo-sidebar-inner">
+                    <!-- START FIND PROPERTY -->
+                    <div class="block-sidebar find-property">
+                        <h3 class="title-block-sidebar">Find Property</h3>
+                        <div class="gsearch">
+                            <div class="gsearch-wrap">
+                                <form class="gsearchform" method="get" role="search">
+                                    <div class="gsearch-content">
+                                        <div class="gsearch-field">
+                                            <div class="form-group" >
+                                                <select class="form-control input-lg" id="country" ng-model="states" ng-options="country for (country, states) in countries">
+                                                    <option value=''>All Countries</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <select class="form-control input-lg" id="state" ng-model="cities" ng-options="state for (state,city) in states">
+                                                    <option value=''>All States</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <select class="form-control input-lg" id="city" ng-model="searchData.city" ng-options="city for city in cities">
+                                                    <option value=''>All Cities</option>
+                                                </select>
+                                            </div>
+
+
+                                            <div class="form-group gstatus">
+                                                <div class="label-select">
+                                                    <select class="form-control" ng-model="searchData.status" >
+                                                        <option value="">All Status</option>
+                                                        <option value="Open House">Open house</option>
+                                                        <option value="Rent">Rent</option>
+                                                        <option value="Sale">Sale</option>
+                                                        <option value="Sold">Sold</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group gtype">
+                                                <div class="label-select">
+                                                    <select class="form-control" ng-model="searchData.types" >
+                                                        <option value="">All Type </option>
+                                                        <option value="Apartment">Apartment</option>
+                                                        <option value="Co-op">Co-op</option>
+                                                        <option value="Condo">Condo</option>
+                                                        <option value="Single Family Home">Single Family Home</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group gbed">
+                                                <div class="label-select">
+                                                    <select class="form-control" ng-model="searchData.bedrooms" >
+                                                        <option value="">No. of Bedrooms</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5+</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group gbath">
+                                                <div class="label-select">
+                                                    <select class="form-control" ng-model="searchData.bathrooms" >
+                                                        <option value="">No. of Bathrooms</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4+</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group gprice">
+                                                <div class="label-select">
+                                                    <select class="form-control" ng-model="searchData.price" >
+                                                        <option value="">All Prices</option>
+                                                        <option value="1">Less than 1000</option>
+                                                        <option value="2">1000 - 5000</option>
+                                                        <option value="3">5001 - 10000</option>
+                                                        <option value="4">10000 - 50000</option>
+                                                        <option value="5">50000+</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group s-prop-_noo_property_feature_school">
+                                                <input type="hidden" name="noo_property_feature[school]" class="" value="0">
+                                                <label for="_noo_property_feature_school" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_school" name="noo_property_feature[school]" ng-model="searchData.school" class="" value="1">&nbsp;School	<i></i>
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group s-prop-_noo_property_feature_hospital">
+                                                <input type="hidden" name="noo_property_feature[hospital]" class="" value="0">
+                                                <label for="_noo_property_feature_hospital" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_hospital" name="noo_property_feature[hospital]" ng-model="searchData.hospital" class="" value="1">&nbsp;Hospital	<i></i>
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group s-prop-_noo_property_feature_shopping_center">
+                                                <input type="hidden" name="noo_property_feature[shopping_center]" class="" value="0">
+                                                <label for="_noo_property_feature_shopping_center" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_shopping_center" name="noo_property_feature[shopping_center]" ng-model="searchData.shopping_center" class="" value="1">&nbsp;Shopping Center	<i></i>
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group s-prop-_noo_property_feature_park">
+                                                <input type="hidden" name="noo_property_feature[park]" class="" value="0">
+                                                <label for="_noo_property_feature_park" class="checkbox-label">
+                                                    <input type="checkbox" id="_noo_property_feature_park" name="noo_property_feature[park]" ng-model="searchData.park" class="" value="1">&nbsp;Park	<i></i>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="gsearch-action">
+                                            <div class="gsubmit">
+                                                <a class="btn btn-deault" ng-click="init()">Search Property</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END FIND PROPERTY -->
+
+                    <!-- START RECENT PROPERTY -->
+                    <div class="block-sidebar recent-property">
+                        <h3 class="title-block-sidebar">Recent Property</h3>
+                        <div class="featured-property">
+                            <ul>
+                                <li ng-repeat="att in recentProperty">
+                                    <div class="featured-image">
+                                        <a href="#/property/view/{{att.id}}"><img src="{{att.image_path}}" alt=""></a>
+                                    </div>
+                                    <div class="featured-decs">
+                                        <span class="featured-status"><a href="#/property/view/{{att.id}}">{{att.status}}</a></span>
+                                        <h4 class="featured-title"><a href="#/property/view/{{att.id}}" title="{{att.title}}">{{att.title}}</a></h4>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- END RECENT PROPERTY -->
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+        </div>
+    </div>
+</div>
+<!-- END MAINBODY -->

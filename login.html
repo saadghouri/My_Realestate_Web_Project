@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Login Page - Appartment App</title>
+
+		<meta name="description" content="User login page" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/font-awesome.css" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/ace.css" id="cust_css" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="assets/css/ace-rtl.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.css" />
+		<![endif]-->
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.js"></script>
+		<![endif]-->
+		<script src="assets/js/angular.js" type="text/javascript"></script>
+		<script src="assets/js/common.js" type="text/javascript"></script>
+  		
+		
+		<script src="assets/ln/i18next.js"></script>
+		<script src="assets/ln/src/provider.js"></script>
+		<script src="assets/ln/src/filter/filter.js"></script>
+		<script src="assets/ln/src/directive/directive.js"></script>
+
+		<script src="assets/js/angularControllers/login.js" type="text/javascript"></script>
+
+	</head>
+
+	<body class="login-layout" ng-app="loginApp"  ng-controller="loginController" data-ng-init="init()">
+		<div class="main-container">
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="login-container">
+							<div class="center">
+								<h1>
+									<div class="main_logo"></div>
+								</h1>
+							</div>
+
+							<div class="space-6"></div>
+
+							<div class="position-relative">
+								<div id="login-box" class="login-box visible widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<form name="loginForm" ng-submit="submitLoginForm(loginForm.$valid)" autocomplete="off" novalidate>
+												<div class="alert alert-success fade in" ng-show="message">
+									            	<span ng-if="message">
+									            		{{ message | i18next }}
+									            	</span>
+									          	</div>
+									          	<div class="alert alert-danger fade in" ng-show="systemErrors">
+									          		<span ng-if="systemErrors">
+									            		{{ systemErrors | i18next }}
+									            	</span>									            	
+									          	</div>
+
+									          	<div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
+										            <div class="block clearfix">
+										            	<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control" name="email" ng-disabled="isDisabled" placeholder="{{'form.email' | i18next}}" ng-model="loginData.email" required>
+										            		<i class="ace-icon fa fa-user"></i>
+														</span>
+										            </div>
+
+										            <span class="help-block" ng-show="errorEmail">{{ errorEmail }}</span>
+										              <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">{{'errors.email' | i18next}}</p>
+										         </div>
+
+										         <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+										            <div class="block clearfix">
+										            	<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" name="password" ng-disabled="isDisabled" placeholder="{{'form.password' | i18next}}" ng-model="loginData.password" required>
+										            		<i class="ace-icon fa fa-lock"></i>
+														</span>										                
+										            </div>
+
+										            <span class="help-block" ng-show="errorPassword">{{ errorPassword }}</span>
+										            <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">{{'errors.password' | i18next}}</p>
+										         </div>
+
+												<fieldset>
+													<div class="clearfix" style="text-align: center;">
+														<button type="submit" class="width-35 btn btn-sm btn-gray" id="login_btn" data-complete-text="Logged In!" data-loading-text="Logging In">
+															<span class="bigger-110" ng-i18next="buttons.login"></span>
+														</button>
+													</div>
+													<div class="space-4"></div>
+												</fieldset>
+											</form>
+										</div><!-- /.widget-main -->
+
+										<div class="toolbar clearfix">
+											<div>
+												<a href="#" data-target="#forgot-box" class="forgot-password-link">
+													<span ng-i18next="links.forgot_password"></span>
+												</a>
+											</div>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.login-box -->
+
+								<div id="forgot-box" class="forgot-box widget-box no-border" ng-controller="resetPassController">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header red lighter bigger">
+												<i class="ace-icon fa fa-key"></i>
+												Retrieve Password
+											</h4>
+
+											<div class="space-6"></div>
+											<p>
+												Enter your email below to receive a password reset email.
+											</p>
+
+
+													<div class="alert alert-success fade in" ng-if="message" ng-show="message" ng-bind-html="renderHtml(message)"></div>
+											        <div class="alert alert-danger fade in" ng-show="systemErrors">
+											            	{{ systemErrors }}
+											        </div>
+
+											<div ng-show="resetForm && !newPassword">
+												<form name="rpForm" ng-submit="submitrpForm(rpForm.$valid)" autocomplete="off" novalidate>
+													<fieldset>
+														<div class="form-group" ng-class="{ 'has-error' : rpForm.email.$invalid && !rpForm.email.$pristine }">
+												            <div class="block clearfix">
+												            	<span class="block input-icon input-icon-right">
+																	<input type="email" class="form-control" name="email" ng-disabled="isDisabled" placeholder="Email" ng-model="rpData.email" required>
+												            		<i class="ace-icon fa fa-envelope"></i>
+																</span>
+												            </div>
+
+												            <span class="help-block" ng-show="errorEmail">{{ errorEmail }}</span>
+												              <p ng-show="rpForm.email.$invalid && !rpForm.email.$pristine" class="help-block">Email is required.</p>
+												        </div>
+
+														<div class="clearfix">
+															<button ng-disabled="rpForm.$invalid" type="submit" class="width-35 pull-right btn btn-sm btn-gray">
+																<i class="ace-icon fa fa-lightbulb-o"></i>
+																<span class="bigger-110">Send Me!</span>
+															</button>
+														</div>
+													</fieldset>
+												</form>
+											</div>
+											<div ng-show="!resetForm && !newPassword">
+												<form name="cvForm" ng-submit="submitcvForm(cvForm.$valid)" autocomplete="off" novalidate>
+													<fieldset>
+														<div class="form-group" ng-class="{ 'has-error' : cvForm.email.$invalid && !cvForm.email.$pristine }">
+												            <div class="block clearfix">
+												            	<span class="block input-icon input-icon-right">
+																	<input type="email" class="form-control" name="email" ng-disabled="isDisabled" placeholder="Email" ng-model="cvData.email" required>
+												            		<i class="ace-icon fa fa-envelope"></i>
+																</span>
+												            </div>
+
+												            <span class="help-block" ng-show="errorEmail">{{ errorEmail }}</span>
+												            <p ng-show="cvForm.email.$invalid && !cvForm.email.$pristine" class="help-block">Email is required.</p>
+												        </div>
+
+												        <div class="form-group" ng-class="{ 'has-error' : cvForm.code.$invalid && !cvForm.code.$pristine }">
+												            <div class="block clearfix">
+												            	<span>Verification Code</span><span class="red">*</span>
+												            	<span class="block input-icon input-icon-right">
+																	<input class="form-control" type="number" name="code" placeholder="Enter code" ng-model="cvData.code" required>
+												            		<i class="ace-icon fa fa-lock"></i>
+																</span>										                
+												        	</div>
+
+												            <span class="help-block" ng-show="errorCode">{{ errorCode }}</span>
+              												<p ng-show="cvForm.code.$invalid && !cvForm.code.$pristine" class="help-block">Invalid code.</p>
+												        </div>
+
+														<div class="clearfix">
+															<button ng-disabled="cvForm.$invalid" type="submit" class="width-35 pull-right btn btn-sm btn-gray">
+																<i class="ace-icon fa fa-lightbulb-o"></i>
+																<span class="bigger-110">Verify!</span>
+															</button>
+														</div>
+													</fieldset>
+												</form>
+											</div>
+											<div ng-show="newPassword">
+												<form name="npForm" ng-submit="submitnpForm(npForm.$valid)" autocomplete="off" novalidate>
+													<fieldset>
+														<div class="form-group" ng-class="{ 'has-error' : npForm.pass.$invalid && !npForm.pass.$pristine }">
+												            <div class="block clearfix">
+												            	<span class="block input-icon input-icon-right">
+																	<input type="password" class="form-control" id="pass" name="pass" placeholder="Enter password" ng-model="npData.pass" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required  />
+												            		<i class="ace-icon fa fa-lock"></i>
+																</span>
+												            </div>
+
+												            <span ng-show="npForm.pass.$error.required && npForm.pass.$dirty">Password required</span>
+            
+												            <span ng-show="!npForm.pass.$error.required && (npForm.pass.$error.minlength || npForm.pass.$error.maxlength) && npForm.pass.$dirty">Passwords must be between 8 and 20 characters.</span>
+												            
+												            <span ng-show="!npForm.pass.$error.required && !npForm.pass.$error.minlength && !npForm.pass.$error.maxlength && npForm.pass.$error.pattern && npForm.pass.$dirty">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
+
+												            <span class="help-block" ng-show="errorPass">{{ errorPass }}</span>
+												        </div>
+
+												        <div class="form-group" ng-class="{ 'has-error' : npForm.cpass.$invalid && !npForm.cpass.$pristine }">
+												            <div class="block clearfix">
+												            	<span class="block input-icon input-icon-right">
+																	<input type="password" class="form-control" id="cpass" name="cpass" placeholder="Enter confirm password" ng-model="npData.cpass" valid-password-c required />
+												            		<i class="ace-icon fa fa-lock"></i>
+																</span>
+												            </div>
+
+												            <span ng-show="npForm.cpass.$error.required && npForm.cpass.$dirty">Please confirm your password.</span>
+
+												            <span ng-show="!npForm.cpass.$error.required && npForm.cpass.$error.noMatch && npForm.pass.$dirty">Passwords do not match.</span>
+
+												            <span class="help-block" ng-show="errorCPass">{{ errorCPass }}</span>
+												        </div>
+
+														<div class="clearfix">
+															<button ng-disabled="npForm.$invalid" type="submit" class="width-35 pull-right btn btn-sm btn-gray">
+																<i class="ace-icon fa fa-lightbulb-o"></i>
+																<span class="bigger-110">Save!</span>
+															</button>
+														</div>
+													</fieldset>
+												</form>
+											</div>
+										</div><!-- /.widget-main -->
+
+										<div class="toolbar center">
+											<a href="#" data-target="#login-box" class="back-to-login-link">
+												Back to login
+												<i class="ace-icon fa fa-arrow-right"></i>
+											</a>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.forgot-box -->
+							</div><!-- /.position-relative -->
+						</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/button.js" type="text/javascript"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery1x.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
+			$( document ).ready(function() {
+			    load_theme();
+			});
+		</script>
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			jQuery(function($) {
+			 $(document).on('click', '.toolbar a[data-target]', function(e) {
+				e.preventDefault();
+				var target = $(this).data('target');
+				$('.widget-box.visible').removeClass('visible');//hide others
+				$(target).addClass('visible');//show target
+			 });
+			});
+		</script>
+	</body>
+</html>
